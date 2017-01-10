@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public interface TestowaRepository extends CrudRepository<Testowa, Long> {
 
 	public Testowa findById(@Param("id") Long id);
-	public List<Testowa> findByImie(@Param("imie") String imie);
+	//public List<Testowa> findByImieAndId(@Param("imie") String imie);
 	public List<Testowa> findAll();
 	
 	  @Query("select nazwisko from Testowa t where t.id = 0")

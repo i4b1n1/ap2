@@ -1,8 +1,12 @@
 package com.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -12,25 +16,30 @@ import lombok.Setter;
 @Setter
 @Getter
 @Table(name="MATCH_EVENT")
-public class MatchEvent {
+public class MatchEvent implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@Column(name="ID")
-	private Long id;
-	
-	@Column(name="EVENT_VALUE")
-	private Double eventValue;
-	
+	@Column(unique=true, nullable=false)
+	private int id;
+
 	@Column(name="EVENT_MINUTE")
-	private Long eventMinute;	
-	
-	@Column(name="MATCH_ID")
-	private Long namematchId;
-	
-	@Column(name="EVENT_TYPE_ID")
-	private Long eventTypeId;	
-	
-	@Column(name="PLAYER_ID")
-	private Long playerId;
+	private int eventMinute;
+
+	@Column(name="TEAM_ID")
+	private int teamId;
+
+	@ManyToOne
+	@JoinColumn(name="EVENT_TYPE_ID", nullable=false)
+	private EventTypeDict eventTypeDict;
+
+	@ManyToOne
+	@JoinColumn(name="MATCH_ID", nullable=false)
+	private Match match;
+
+	@ManyToOne
+	@JoinColumn(name="PLAYER_ID", nullable=false)
+	private Player player;
 	
 
 }

@@ -1,11 +1,18 @@
 package com.domain;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,24 +21,37 @@ import lombok.Setter;
 @Setter
 @Getter
 @Table(name="MATCH")
-public class Match {
+public class Match implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@Column(name="ID")
-	private Long id;
-	
+	@Column(unique=true, nullable=false)
+	private int id;
+
+	@Column(name="IS_FINISHED")
+	private byte isFinished;
+
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="MATCH_DATE")
 	private Date matchDate;
-	
-	@Column(name="TEAM_HOME_ID")
-	private Long teamHomeId;	
-	
-	@Column(name="TEAM_AWAY_ID")
-	private Long teamAwayId;	
-	
-	@Column(name="REFEREE_ID")
-	private Long refereeId;	
-	
-	@Column(name="COURT_ID")
-	private Long courtId;	
+
+	@ManyToOne
+	@JoinColumn(name="COURT_ID", nullable=false)
+	private Court court;
+
+	@ManyToOne
+	@JoinColumn(name="REFEREE_ID", nullable=false)
+	private Referee referee;
+
+	@ManyToOne
+	@JoinColumn(name="TEAM_HOME_ID", nullable=false)
+	private Team team1;
+
+	@ManyToOne
+	@JoinColumn(name="TEAM_AWAY_ID", nullable=false)
+	private Team team2;
+
+	@OneToMany(mappedBy="match")
+	private List<MatchEvent> matchEvents;	
 	
 }

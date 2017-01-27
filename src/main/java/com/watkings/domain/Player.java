@@ -1,4 +1,4 @@
-package com.domain;
+package com.watkings.domain;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,8 +20,8 @@ import lombok.Setter;
 @Entity
 @Setter
 @Getter
-@Table(name="TEAM")
-public class Team implements Serializable {
+@Table(name="PLAYER")
+public class Player implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -29,23 +29,26 @@ public class Team implements Serializable {
 	private int id;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="FAUNDATION_DATE")
-	private Date faundationDate;
+	@Column(name="DATE_OF_BIRTH")
+	private Date dateOfBirth;
 
-	@Column(nullable=false, length=45)
+	@Column(length=45)
 	private String name;
 
-	@OneToMany(mappedBy="team1")
-	private List<Match> matches1;
+	@Column(length=45)
+	private String nationality;
 
-	@OneToMany(mappedBy="team2")
-	private List<Match> matches2;
+	@Column(length=45)
+	private String position;
 
-	@OneToMany(mappedBy="team")
-	private List<Player> players;
+	@OneToMany(mappedBy="player")
+	private List<MatchEvent> matchEvents;
 
 	@ManyToOne
-	@JoinColumn(name="CAPITAIN_ID")
-	private Player player;
+	@JoinColumn(name="TEAM_ID")
+	private Team team;
 
+	@OneToMany(mappedBy="player")
+	private List<Team> teams;
+	
 }

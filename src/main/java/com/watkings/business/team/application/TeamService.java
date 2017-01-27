@@ -1,13 +1,13 @@
-package Team;
+package com.watkings.business.team.application;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.domain.Player;
-import com.domain.PlayerRepository;
-import com.domain.TeamRepository;
+import com.watkings.domain.Player;
+import com.watkings.domain.PlayerRepository;
+import com.watkings.domain.TeamRepository;
 
 @Component
 public class TeamService {

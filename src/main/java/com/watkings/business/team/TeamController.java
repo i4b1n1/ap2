@@ -1,4 +1,4 @@
-package Team;
+package com.watkings.business.team;
 
 import java.util.List;
 
@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.domain.Player;
+import com.watkings.business.team.application.TeamService;
+import com.watkings.domain.Player;
 
 
 @RestController

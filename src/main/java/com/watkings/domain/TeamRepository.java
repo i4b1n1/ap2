@@ -1,4 +1,4 @@
-package com.domain;
+package com.watkings.domain;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface MatchRepository extends CrudRepository<Match, Long> {
+public interface TeamRepository extends CrudRepository<Team, Long> {
 
-	public List<Match> findAll();	
+	public List<Team> findAll();	
 
 }

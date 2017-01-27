@@ -1,4 +1,4 @@
-package com.domain;
+package com.watkings.domain;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,18 +15,24 @@ import lombok.Setter;
 @Entity
 @Setter
 @Getter
-@Table(name="EVENT_TYPE_DICT")
-public class EventTypeDict implements Serializable {
+@Table(name="REFEREE")
+public class Referee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(unique=true, nullable=false)
 	private int id;
 
-	@Column(name="EVENT_NAME", length=45)
-	private String eventName;
+	@Column(name="BIRTH_DATE", length=45)
+	private String birthDate;
 
-	@OneToMany(mappedBy="eventTypeDict")
-	private List<MatchEvent> matchEvents;
+	@Column(name="FIRST_NAME", length=45)
+	private String firstName;
+
+	@Column(name="LAST_NAME", length=45)
+	private String lastName;
+
+	@OneToMany(mappedBy="referee")
+	private List<Match> matches;
 
 }

@@ -1,0 +1,29 @@
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `watking_prime`@`%` 
+    SQL SECURITY DEFINER
+VIEW `TEAMS_UNIT_POINTS` AS
+    SELECT 
+        `WYNIKI`.`LEAGUE_ID` AS `LEAGUE_ID`,
+        `WYNIKI`.`TEAM_HOME_ID` AS `TEAM_ID`,
+        `WYNIKI`.`GOALS_HOME` AS `GOALS_SCORED`,
+        `WYNIKI`.`GOALS_AWAY` AS `GOALS_LOST`,
+        (CASE
+            WHEN (`WYNIKI`.`GOALS_HOME` > `WYNIKI`.`GOALS_AWAY`) THEN 3
+            WHEN (`WYNIKI`.`GOALS_HOME` < `WYNIKI`.`GOALS_AWAY`) THEN 0
+            ELSE 1
+        END) AS `POINTS`
+    FROM
+        `WYNIKI` 
+    UNION ALL SELECT 
+        `WYNIKI`.`LEAGUE_ID` AS `LEAGUE_ID`,
+        `WYNIKI`.`TEAM_AWAY_ID` AS `TEAM_ID`,
+        `WYNIKI`.`GOALS_AWAY` AS `GOALS_SCORED`,
+        `WYNIKI`.`GOALS_HOME` AS `GOALS_LOST`,
+        (CASE
+            WHEN (`WYNIKI`.`GOALS_AWAY` > `WYNIKI`.`GOALS_HOME`) THEN 3
+            WHEN (`WYNIKI`.`GOALS_AWAY` < `WYNIKI`.`GOALS_HOME`) THEN 0
+            ELSE 1
+        END) AS `POINTS`
+    FROM
+        `WYNIKI`

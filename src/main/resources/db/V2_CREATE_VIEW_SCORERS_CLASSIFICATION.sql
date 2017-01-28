@@ -14,4 +14,4 @@ VIEW `SCORERS_CLASSIFICATION` AS
     WHERE
         (`me`.`EVENT_TYPE_ID` = 1)
     GROUP BY 1 , 2
-    ORDER BY `Bramki` DESC
+    ORDER BY `Bramki` DESC;

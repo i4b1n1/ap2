@@ -2,7 +2,7 @@ CREATE
     ALGORITHM = UNDEFINED 
     DEFINER = `watking_prime`@`%` 
     SQL SECURITY DEFINER
-VIEW `WYNIKI` AS
+VIEW `RESULTS` AS
     SELECT 
         `me`.`MATCH_ID` AS `MATCH_ID`,
         `m`.`LEAGUE_ID` AS `LEAGUE_ID`,
@@ -22,4 +22,4 @@ VIEW `WYNIKI` AS
         LEFT JOIN `MATCH` `m` ON ((`me`.`MATCH_ID` = `m`.`ID`)))
     WHERE
         (`me`.`EVENT_TYPE_ID` = 1)
-    GROUP BY `me`.`MATCH_ID`
+    GROUP BY `me`.`MATCH_ID`;

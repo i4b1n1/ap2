@@ -1,8 +1,5 @@
-CREATE 
-    ALGORITHM = UNDEFINED 
-    DEFINER = `watking_prime`@`%` 
-    SQL SECURITY DEFINER
-VIEW `RESULTS` AS
+USE `watking_test1`;
+CREATE  OR REPLACE VIEW `results` AS
     SELECT 
         `me`.`MATCH_ID` AS `MATCH_ID`,
         `m`.`LEAGUE_ID` AS `LEAGUE_ID`,
@@ -18,8 +15,8 @@ VIEW `RESULTS` AS
             ELSE 0
         END)) AS `GOALS_AWAY`
     FROM
-        (`MATCH_EVENT` `me`
-        LEFT JOIN `MATCH` `m` ON ((`me`.`MATCH_ID` = `m`.`ID`)))
+        (`match_event` `me`
+        LEFT JOIN `match` `m` ON ((`me`.`MATCH_ID` = `m`.`ID`)))
     WHERE
         (`me`.`EVENT_TYPE_ID` = 1)
     GROUP BY `me`.`MATCH_ID`;

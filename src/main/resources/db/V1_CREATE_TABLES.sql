@@ -23,9 +23,9 @@ USE `watking_test1` ;
 -- -----------------------------------------------------
 -- Table `watking_test1`.`COURT`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `watking_test1`.`COURT` ;
+DROP TABLE IF EXISTS `watking_test1`.`court` ;
 
-CREATE TABLE IF NOT EXISTS `watking_test1`.`COURT` (
+CREATE TABLE IF NOT EXISTS `watking_test1`.`court` (
   `ID` INT(11) NOT NULL,
   `NAME` VARCHAR(45) NULL DEFAULT NULL,
   `ADDRESS` VARCHAR(45) NULL DEFAULT NULL,
@@ -37,9 +37,9 @@ DEFAULT CHARACTER SET = latin2;
 -- -----------------------------------------------------
 -- Table `watking_test1`.`EVENT_TYPE_DICT`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `watking_test1`.`EVENT_TYPE_DICT` ;
+DROP TABLE IF EXISTS `watking_test1`.`event_type_dict` ;
 
-CREATE TABLE IF NOT EXISTS `watking_test1`.`EVENT_TYPE_DICT` (
+CREATE TABLE IF NOT EXISTS `watking_test1`.`event_type_dict` (
   `ID` INT(11) NOT NULL,
   `EVENT_NAME` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`))
@@ -50,9 +50,9 @@ DEFAULT CHARACTER SET = latin2;
 -- -----------------------------------------------------
 -- Table `watking_test1`.`REFEREE`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `watking_test1`.`REFEREE` ;
+DROP TABLE IF EXISTS `watking_test1`.`referee` ;
 
-CREATE TABLE IF NOT EXISTS `watking_test1`.`REFEREE` (
+CREATE TABLE IF NOT EXISTS `watking_test1`.`referee` (
   `ID` INT(11) NOT NULL,
   `FIRST_NAME` VARCHAR(45) NULL DEFAULT NULL,
   `LAST_NAME` VARCHAR(45) NULL DEFAULT NULL,
@@ -65,9 +65,9 @@ DEFAULT CHARACTER SET = latin2;
 -- -----------------------------------------------------
 -- Table `watking_test1`.`PLAYER`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `watking_test1`.`PLAYER` ;
+DROP TABLE IF EXISTS `watking_test1`.`player` ;
 
-CREATE TABLE IF NOT EXISTS `watking_test1`.`PLAYER` (
+CREATE TABLE IF NOT EXISTS `watking_test1`.`player` (
   `ID` INT(11) NOT NULL,
   `NAME` VARCHAR(45) NULL DEFAULT NULL,
   `TEAM_ID` INT(11) NULL DEFAULT NULL,
@@ -88,9 +88,9 @@ DEFAULT CHARACTER SET = latin2;
 -- -----------------------------------------------------
 -- Table `watking_test1`.`TEAM`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `watking_test1`.`TEAM` ;
+DROP TABLE IF EXISTS `watking_test1`.`team` ;
 
-CREATE TABLE IF NOT EXISTS `watking_test1`.`TEAM` (
+CREATE TABLE IF NOT EXISTS `watking_test1`.`team` (
   `ID` INT(11) NOT NULL,
   `NAME` VARCHAR(45) NOT NULL,
   `FAUNDATION_DATE` DATE NULL DEFAULT NULL,
@@ -109,9 +109,9 @@ DEFAULT CHARACTER SET = latin2;
 -- -----------------------------------------------------
 -- Table `watking_test1`.`MATCH`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `watking_test1`.`MATCH` ;
+DROP TABLE IF EXISTS `watking_test1`.`match` ;
 
-CREATE TABLE IF NOT EXISTS `watking_test1`.`MATCH` (
+CREATE TABLE IF NOT EXISTS `watking_test1`.`match` (
   `ID` INT(11) NOT NULL,
   `MATCH_DATE` DATE NULL DEFAULT NULL,
   `TEAM_HOME_ID` INT(11) NOT NULL,
@@ -151,9 +151,9 @@ DEFAULT CHARACTER SET = latin2;
 -- -----------------------------------------------------
 -- Table `watking_test1`.`MATCH_EVENT`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `watking_test1`.`MATCH_EVENT` ;
+DROP TABLE IF EXISTS `watking_test1`.`match_event` ;
 
-CREATE TABLE IF NOT EXISTS `watking_test1`.`MATCH_EVENT` (
+CREATE TABLE IF NOT EXISTS `watking_test1`.`match_event` (
   `ID` INT(11) NOT NULL,
   `EVENT_VALUE` DECIMAL(10,0) NULL DEFAULT NULL,
   `EVENT_MINUTE` INT(11) NULL DEFAULT NULL,

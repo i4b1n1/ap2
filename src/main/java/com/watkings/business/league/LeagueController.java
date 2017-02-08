@@ -1,22 +1,28 @@
 package com.watkings.business.league;
 
+
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.watkings.domain.LeagueTable;
+import com.watkings.domain.LeagueTableRepository;
 
 
 @RestController
 @RequestMapping("/league")
 public class LeagueController {
 	
-//	@Autowired
-//	LeagueService leagueService;
+	@Autowired
+	LeagueTableRepository repo;
 	
 	@RequestMapping("/table")
 	//"Tabela ligowa dla ligi o podanym ID")
-	public String getLeagueTable(){
+	public List<LeagueTable> getLeagueTable(){
 		String result = "Tabela ligi "; 
-		return result;
+		return repo.findAll();
 	}
-	
 }

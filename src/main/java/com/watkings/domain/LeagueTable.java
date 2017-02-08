@@ -7,35 +7,30 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 
-
-/**
- * The persistent class for the LEAGUE_TABLE database table.
- * 
- */
 @Entity
 @Table(name="league_table")
 public class LeagueTable implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+    @Column(name="TEAM_ID")
+	private int teamId;
+	
 	@Column(name="GOALS_LOST", precision=10)
 	private BigDecimal goalsLost;
 
 	@Column(name="GOALS_SCORED", precision=10)
 	private BigDecimal goalsScored;
 
-	@Id
+	
 	@Column(name="LEAGUE_ID")
 	private int leagueId;
 
 	@Column(precision=10)
 	private BigDecimal points;
-
-	
-    @JoinColumn(name="TEAM_ID")
-	private int teamId;
     
     @JoinColumn(name="NAME")
-    private String teamName;
+    private String name;
 
 	public LeagueTable() {
 	}
@@ -80,11 +75,11 @@ public class LeagueTable implements Serializable {
 		this.teamId = team;
 	}
 	
-	public String getTeamName(){
-		return this.teamName;
+	public String getName(){
+		return this.name;
 	}
 
-	public void setTeamName(String team){
-		this.teamName = team;
+	public void setName(String team){
+		this.name = team;
 	}
 }

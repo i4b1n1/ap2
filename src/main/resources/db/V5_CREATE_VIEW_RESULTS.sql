@@ -3,7 +3,7 @@ CREATE  OR REPLACE VIEW `results` AS
     SELECT 
         `me`.`MATCH_ID` AS `MATCH_ID`,
         `m`.`LEAGUE_ID` AS `LEAGUE_ID`,
-        `m`.`ROUND_NUMBER` AS `ROUND_NUMBER`,
+        `m`.`ROUND_NUMBER` AS `MATCHWEKK_NUMBER`,
         `m`.`TEAM_HOME_ID` AS `TEAM_HOME_ID`,
         SUM((CASE
             WHEN (`me`.`TEAM_ID` = `m`.`TEAM_HOME_ID`) THEN 1

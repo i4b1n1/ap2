@@ -1,13 +1,11 @@
-CREATE 
-    ALGORITHM = UNDEFINED 
-    DEFINER = `watking_prime`@`%` 
-    SQL SECURITY DEFINER
-VIEW `scorers_cassification` AS
+USE `watking_test1`;
+CREATE  OR REPLACE VIEW `scorers_cassification` AS
     SELECT 
-        `p`.`NAME` AS `Zawodnik`,
-        `t`.`NAME` AS `Druzyna`,
-        COUNT(`me`.`ID`) AS `Bramki`,
-        `t`.`LEAGUE_ID` AS `LEAGUE_ID`
+    	p.ID as PLAYER_ID,
+        `p`.`NAME` AS `zawodnik`,
+        `t`.`NAME` AS `druzyna`,
+        COUNT(`me`.`ID`) AS `bramki`,
+        `t`.`LEAGUE_ID` AS `league_id`
     FROM
         ((`match_event` `me`
         JOIN `player` `p` ON ((`me`.`PLAYER_ID` = `p`.`ID`)))

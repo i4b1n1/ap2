@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TeamRepository extends CrudRepository<Team, Long> {
 
-	public List<Team> findAll();	
+	public List<Team> findAll();
+
+	public Team findById(int Id);	
 
 }

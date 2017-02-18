@@ -9,12 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
-@Setter
-@Getter
 @Table(name="MATCH_EVENT")
 public class MatchEvent implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -26,20 +22,70 @@ public class MatchEvent implements Serializable {
 	@Column(name="EVENT_MINUTE")
 	private int eventMinute;
 
+	@Column(name="EVENT_TYPE_ID", nullable=false)
+	private int eventTypeId;
+
+	@Column(name="PLAYER_ID", nullable=false)
+	private int playerId;
+
 	@Column(name="TEAM_ID")
 	private int teamId;
 
-	@ManyToOne
-	@JoinColumn(name="EVENT_TYPE_ID", nullable=false)
-	private EventTypeDict eventTypeDict;
-
+	//bi-directional many-to-one association to Match
 	@ManyToOne
 	@JoinColumn(name="MATCH_ID", nullable=false)
 	private Match match;
 
-	@ManyToOne
-	@JoinColumn(name="PLAYER_ID", nullable=false)
-	private Player player;
+	public MatchEvent() {
+	}
+
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getEventMinute() {
+		return this.eventMinute;
+	}
+
+	public void setEventMinute(int eventMinute) {
+		this.eventMinute = eventMinute;
+	}
+
+	public int getEventTypeId() {
+		return this.eventTypeId;
+	}
+
+	public void setEventTypeId(int eventTypeId) {
+		this.eventTypeId = eventTypeId;
+	}
+
+	public int getPlayerId() {
+		return this.playerId;
+	}
+
+	public void setPlayerId(int playerId) {
+		this.playerId = playerId;
+	}
+
+	public int getTeamId() {
+		return this.teamId;
+	}
+
+	public void setTeamId(int teamId) {
+		this.teamId = teamId;
+	}
+
+	public Match getMatch() {
+		return this.match;
+	}
+
+	public void setMatch(Match match) {
+		this.match = match;
+	}
 	
 
 }

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 
@@ -13,8 +12,9 @@ public interface PlayerRepository extends CrudRepository<Player, Long> {
 
 	public List<Player> findAll();
 	
-	@Query("select p from Player p where p.team.id = :teamId")
-	public List<Player> getTeamPlayers(@Param("teamId")int teamId);
-	
+	@Query(value="select * from player p where p.TEAM_ID = ?1",nativeQuery=true)
+	public List<Player> getTemSquad(int teamId);
 
+	public Player findById(int playerId);
+		
 }

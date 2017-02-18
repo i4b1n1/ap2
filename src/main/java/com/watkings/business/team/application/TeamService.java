@@ -1,25 +1,33 @@
 package com.watkings.business.team.application;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.watkings.domain.Player;
 import com.watkings.domain.PlayerRepository;
+import com.watkings.domain.Team;
 import com.watkings.domain.TeamRepository;
 
 @Component
 public class TeamService {
 	@Autowired
 	TeamRepository teamRepository;
-	
 	@Autowired
 	PlayerRepository platerRepository;
+	public void updateTeam(Team team, TeamUpdateDto teamUpdateDto) {
+		
+		if(teamUpdateDto.getFaundationDate()!=null)
+			team.setFaundationDate(teamUpdateDto.getFaundationDate());
+		if(teamUpdateDto.getName()!=null)
+			team.setName(teamUpdateDto.getName());
+		if(teamUpdateDto.getCapitain()!=null)
+			team.setPlayer(teamUpdateDto.getCapitain());
+		if(teamUpdateDto.getLeagueId()!=null)
+		team.setLeagueId(teamUpdateDto.getLeagueId());
+		
+		teamRepository.save(team);
 
-	public List<Player> getPlayersList(int teamId) {
-		return platerRepository.getTeamPlayers(teamId);
 	}
+
 	
 	
 

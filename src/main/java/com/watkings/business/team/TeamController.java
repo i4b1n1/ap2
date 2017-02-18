@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,13 +41,13 @@ public class TeamController {
 	
 	@Transactional
 	@RequestMapping(value="/update-team/{teamId}")
-	public void updatePlayer(@PathVariable int teamId,@ModelAttribute(value="playerDto") TeamUpdateDto teamUpdateDto){
+	public void updatePlayer(@PathVariable int teamId,@RequestBody TeamUpdateDto teamUpdateDto){
 		Team team = teamRepository.findById(teamId);
 		teamService.updateTeam(team, teamUpdateDto);
 	}
 	
 	@RequestMapping(value="/add-team")
-	public void addPlayer(@ModelAttribute(value="teamDto") TeamUpdateDto teamUpdateDto){
+	public void addPlayer(@RequestBody TeamUpdateDto teamUpdateDto){
 		Team team = new Team();
 		teamService.updateTeam(team, teamUpdateDto);
 	}

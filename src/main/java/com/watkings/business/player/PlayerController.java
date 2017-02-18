@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,13 +37,13 @@ public class PlayerController {
 	
 	@Transactional
 	@RequestMapping(value="/update-player/{playerId}", method = RequestMethod.POST)
-	public void updatePlayer(@PathVariable int playerId,@ModelAttribute(value="playerUpdateDto") PlayerUpdateDto playerUpdateDto){
+	public void updatePlayer(@PathVariable int playerId,@RequestBody PlayerUpdateDto playerUpdateDto){
 		Player player = playerRepository.findById(playerId);
 		playerService.updatePlayer(player, playerUpdateDto);
 	}
 	
 	@RequestMapping(value="/add-player", method = RequestMethod.POST)
-	public void addPlayer(@ModelAttribute(value="playerUpdateDto") PlayerUpdateDto playerUpdateDto){
+	public void addPlayer(@RequestBody PlayerUpdateDto playerUpdateDto){
 		Player player = new Player();
 		playerService.updatePlayer(player, playerUpdateDto);
 	}

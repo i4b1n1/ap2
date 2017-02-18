@@ -36,13 +36,13 @@ public class PlayerController {
 	
 	@Transactional
 	@RequestMapping(value="/update-player/{playerId}", method = RequestMethod.POST)
-	public void updatePlayer(@PathVariable int playerId,@ModelAttribute(value="playerDto") PlayerUpdateDto playerUpdateDto){
+	public void updatePlayer(@PathVariable int playerId,@ModelAttribute(value="playerUpdateDto") PlayerUpdateDto playerUpdateDto){
 		Player player = playerRepository.findById(playerId);
 		playerService.updatePlayer(player, playerUpdateDto);
 	}
 	
 	@RequestMapping(value="/add-player", method = RequestMethod.POST)
-	public void addPlayer(@ModelAttribute(value="playerDto") PlayerUpdateDto playerUpdateDto){
+	public void addPlayer(@ModelAttribute(value="playerUpdateDto") PlayerUpdateDto playerUpdateDto){
 		Player player = new Player();
 		playerService.updatePlayer(player, playerUpdateDto);
 	}

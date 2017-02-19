@@ -24,7 +24,7 @@ public class Match implements Serializable {
 	@GeneratedValue
 	@Id
 	@Column(unique=true, nullable=false)
-	private int id;
+	private Long id;
 
 	@Column(name="IS_FINISHED")
 	private boolean isFinished;
@@ -68,11 +68,11 @@ public class Match implements Serializable {
 	public Match() {
 	}
 
-	public int getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

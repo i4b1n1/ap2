@@ -1,0 +1,66 @@
+<div class="logowanie col-lg-12 text-center ">
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			<nav class="navbar  navbar-inverse bg-inverse">
+				<div class="container-fluid">
+
+					<ul class="nav navbar-nav">
+						<li><a ng-click="liga('all')" href="#/panel">Glowna</a></li>
+						<li><a ng-click="liga('l1')" href="#/liga1">Liga 1</a></li>
+						<li><a ng-click="liga('l2')" href="#/liga2">Liga 2</a></li>
+						<li><a ng-click="liga('l3')" href="#/liga3">Liga 3</a></li>
+						<li><a  ng-click="create()" id="createButton">Edycja</a></li> 
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#/kontakt">Kontakt</a></li>
+						<li class="active"><a href="#/login">Logowanie</a></li>
+				
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4"></div>
+		<div class="col-lg-4 text-center">
+			<h2>Panel Logowania</h2>
+		</div>
+		<div class="col-lg-4"></div>
+	</div>
+	<div class="row">
+		<div class="col-lg-5"></div>
+		<div class="col-lg-2 text-center">
+			<h2>Login</h2>
+			<input type="text" ng-model="login">
+		</div>
+		<div class="col-lg-5"></div>
+	</div>
+	<div class="row">
+		<div class="col-lg-5"></div>
+		<div class="col-lg-2 text-center">
+			<h2>Haslo</h2>
+			<input type="text" ng-model="key">
+		</div>
+		<div class="col-lg-5"></div>
+	</div>
+	<div class="row">
+		<div class="col-lg-5"></div>
+		<div class="col-lg-2 text-center">
+			<button type="button" class="btn btn-primary" ng-click="loguj()"
+				name="przyciski">Akceptuj</button>
+		</div>
+		<div class="col-lg-5"></div>
+	</div>
+	<div class="row">
+		<div class="col-lg-5"></div>
+		<div class="col-lg-2">
+			<h3>{{name}}</h3>
+		</div>
+		<div class="col-lg-5"></div>
+	</div>
+
+
+	
+</div>
+

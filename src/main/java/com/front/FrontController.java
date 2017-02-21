@@ -32,15 +32,15 @@ public class FrontController {
 			@PathVariable("date") String date,
 			@PathVariable("liga") String liga) {
 
-
-	}
+		log.info("save" +  id+ team1name+team1score +team2name + team2score+ date+ liga);;
+	};
 	
 	@RequestMapping(value = "insert/team/{nazwa}/{liga}/{pozycja}", method = RequestMethod.POST)
 	public void insertTeam(
 			@PathVariable("nazwa") String nazwa,
 			@PathVariable("liga") String liga,
 			@PathVariable("pozycja") String pozycja) {
-		log.info("--- " + nazwa + " " + liga + " " + pozycja);
+		log.info("insert team " + nazwa + " " + liga + " " + pozycja);
 
 	}
 
@@ -50,7 +50,7 @@ public class FrontController {
 			@PathVariable("nazwaT2") String nazwaT2,
 			@PathVariable("data") String data, 
 			@PathVariable("liga") String liga) {
-
+		log.info("insert przyszly " + nazwaT1 + " " + liga + " " + nazwaT2);
 	}
 
 	@RequestMapping(value = "insert/wynik/{nazwaT1}/{nazwaT2}/{data}/{wynik}/{liga}", method = RequestMethod.POST)
@@ -60,6 +60,7 @@ public class FrontController {
 			@PathVariable("data") String data, 
 			@PathVariable("wynik") String wynik, 
 			@PathVariable("liga") String liga) {
+		log.info("insert wynik " + nazwaT1 + " " + liga + " " + nazwaT2);
 
 	}
 
@@ -70,7 +71,7 @@ public class FrontController {
 			@PathVariable("pozycja") String pozycja, 
 			@PathVariable("kary") String kary,
 			@PathVariable("liga") String liga) {
-
+		log.info("insert pilkarz " + imie + " " + nazwisko + " " + pozycja);
 	}
 
 	@RequestMapping(value = "/logging/{login}/{key}", method = RequestMethod.GET)
@@ -116,7 +117,7 @@ public class FrontController {
 		listMatch.add(new Match(2, listTeam.get(3), listTeam.get(4), "25", "44", "srodk", leagueId));
 		listMatch.add(new Match(3, listTeam.get(4), listTeam.get(5), "26", "49", "wtor", leagueId));
 		listMatch.add(new Match(4, listTeam.get(5), listTeam.get(6), "21", "45", "pzsz", "karzel7"));
-
+		log.info("scoreMatchs   " +leagueId);
 		return listMatch;
 	}
 
@@ -152,7 +153,7 @@ public class FrontController {
 		listMatch.add(new Match(2, listTeam.get(3), listTeam.get(4), "25", "44", "srodk", leagueId));
 		listMatch.add(new Match(3, listTeam.get(4), listTeam.get(5), "26", "49", "wtor", leagueId));
 		listMatch.add(new Match(4, listTeam.get(5), listTeam.get(6), "21", "45", "pzsz", leagueId));
-
+		log.info("futireMatch   " +leagueId);
 		return listMatch;
 	}
 

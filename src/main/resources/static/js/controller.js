@@ -183,11 +183,11 @@ app.controller('createController', function($scope, $http, $location,
 			$scope.info = " Nie Dodano przyszly";
 		});
 	}
-	
+	    
 	$scope.submitWynik = function() {
 
 		$http.post(
-				url = 'http://localhost:2990/insert/wynik' + team1Wynik.value + "/"+ team2Wynik.value + "/"+ dataWynik.value + "/"+ wynikWynik.value + "/"+ ligaWynik.value).
+				url = 'http://localhost:2990/insert/wynik/' + team1Wynik.value + "/"+ team2Wynik.value + "/"+ dataWynik.value + "/"+ wynikWynik.value + "/"+ ligaWynik.value).
 				success(function(data) {
 					$scope.info = "Dodano Wynik";
 		}).error(function(data) {
@@ -198,7 +198,7 @@ app.controller('createController', function($scope, $http, $location,
 	$scope.submitPilkarz= function() {
 
 		$http.post(
-				url = 'http://localhost:2990/insert/pilkarz'  + imiePilkarz.value + "/"+ nazwiskoPilkarz.value + "/"+ pozycjaPilkarz.value + "/"+ karyPilkarz.value + "/"+ ligaPilkarz.value ).
+				url = 'http://localhost:2990/insert/pilkarz/'  + imiePilkarz.value + "/"+ nazwiskoPilkarz.value + "/"+ pozycjaPilkarz.value + "/"+ karyPilkarz.value + "/"+ ligaPilkarz.value ).
 				success(function(data) {
 					$scope.info = "Dodano Pilkarz";
 		}).error(function(data) {

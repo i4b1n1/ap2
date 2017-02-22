@@ -1,4 +1,4 @@
-package com.front;
+package com.dto;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Setter;
 
-public class Team {
+public class TeamA {
 
 
 
-	public Team(Integer id, String idLeague, String name, String positionInLeague, List<Footballer> listFootballer) {
+	public TeamA(Integer id, String idLeague, String name, String positionInLeague, List<FootballerA> listFootballer) {
 		super();
 		this.id = id;
 		this.idLeague = idLeague;
@@ -27,5 +27,5 @@ public class Team {
 	
 	public String positionInLeague;
 	
-	public List<Footballer> listFootballer;	
+	public List<FootballerA> listFootballer;	
 }

@@ -1,4 +1,4 @@
-package com.front;
+package com.dto;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 
-public class Match {
+public class MatchA {
 
 
 
-	public Match(Integer id, Team team1, Team team2, String scoreT1, String scoreT2, String date, String judge) {
+	public MatchA(Integer id, TeamA team1, TeamA team2, String scoreT1, String scoreT2, String date, String judge) {
 		super();
 		this.id = id;
 		this.team1 = team1;
@@ -23,9 +23,9 @@ public class Match {
 
 	public Integer id;
 	
-	public Team team1;
+	public TeamA team1;
 		
-	public Team team2;
+	public TeamA team2;
 	
 	public String scoreT1;
 	

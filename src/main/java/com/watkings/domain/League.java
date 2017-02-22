@@ -15,7 +15,7 @@ public class League implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false)
+	@Column(unique=true, nullable=false)  
 	private int id;
 
 	@Column(name="LEAGUE_NAME", length=45)

@@ -2,6 +2,8 @@ package com.watkings.business.team;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +21,6 @@ import com.watkings.domain.TeamRepository;
 
 
 @RestController
-@RequestMapping("/team")
 public class TeamController {
 
 	@Autowired
@@ -30,7 +31,8 @@ public class TeamController {
 	TeamRepository teamRepository;
 	@Autowired
 	TeamService teamService;
-	
+	Log log = LogFactory.getLog(TeamController.class);
+
 
 	@RequestMapping(value="/players/list/{id}", method = RequestMethod.GET)
 	public List<Player> getTeamPlayers(@PathVariable int id) {
@@ -57,4 +59,13 @@ public class TeamController {
 		return result;
 	}
 
+	
+	@RequestMapping(value = "insert/team/{nazwa}/{liga}/{pozycja}", method = RequestMethod.POST)
+	public void insertTeam(
+			@PathVariable("nazwa") String nazwa,
+			@PathVariable("liga") String liga,
+			@PathVariable("pozycja") String pozycja) {
+		log.info("insert team " + nazwa + " " + liga + " " + pozycja);
+
+	}
 }

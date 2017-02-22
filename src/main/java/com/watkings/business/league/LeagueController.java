@@ -17,7 +17,6 @@ import com.watkings.domain.ResultsRepository;
 
 
 @RestController
-@RequestMapping("/league")
 public class LeagueController {
 	
 	@Autowired

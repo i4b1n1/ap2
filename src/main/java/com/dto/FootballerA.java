@@ -1,11 +1,11 @@
-package com.front;
+package com.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 
-public class Footballer {
-	public Footballer(Integer id, String name, String surname, String team, String idLeague, String position,
+public class FootballerA {
+	public FootballerA(Integer id, String name, String surname, String team, String idLeague, String position,
 			String penalties) {
 		super();
 		this.id = id;

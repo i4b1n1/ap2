@@ -2,24 +2,19 @@ package com.watkings.business.match.application;
 
 import java.util.Date;
 
-
-import com.watkings.domain.Court;
-import com.watkings.domain.Referee;
-import com.watkings.domain.Team;
-
 public class MatchUpdateDto {
 
 	private Boolean isFinished;
 
 	private Date matchDate;
 
-	private Court court;
+//	private int courtId;
 
-	private Referee referee;
+	private int refereeId;
 
-	private Team team1;
+	private Long team1Id;
 
-	private Team team2;
+	private Long team2Id;
 
 	public Boolean getIsFinished() {
 		return isFinished;
@@ -37,36 +32,36 @@ public class MatchUpdateDto {
 		this.matchDate = matchDate;
 	}
 
-	public Court getCourt() {
-		return court;
+//	public int getCourt() {
+//		return courtId;
+//	}
+//
+//	public void setCourt(int courtId) {
+//		this.courtId = courtId;
+//	}
+
+	public int getReferee() {
+		return refereeId;
 	}
 
-	public void setCourt(Court court) {
-		this.court = court;
+	public void setReferee(int referee) {
+		this.refereeId = referee;
 	}
 
-	public Referee getReferee() {
-		return referee;
+	public Long getTeam1() {
+		return team1Id;
 	}
 
-	public void setReferee(Referee referee) {
-		this.referee = referee;
+	public void setTeam1(Long team1) {
+		this.team1Id = team1;
 	}
 
-	public Team getTeam1() {
-		return team1;
+	public Long getTeam2() {
+		return team2Id;
 	}
 
-	public void setTeam1(Team team1) {
-		this.team1 = team1;
-	}
-
-	public Team getTeam2() {
-		return team2;
-	}
-
-	public void setTeam2(Team team2) {
-		this.team2 = team2;
+	public void setTeam2(Long team2) {
+		this.team2Id = team2;
 	}
 
 }

@@ -15,7 +15,7 @@ public interface CourtRepository extends CrudRepository<Court, Long> {
 	public List<Court> findByName(@Param("name") String name);
 	public List<Court> findAll();
 	
-	@Query("select c from Court c order by RAND() LIMIT 1")
+	@Query(value="SELECT * FROM court LIMIT 1", nativeQuery = true)
 	public Court getRandomCourt();	
 
 }

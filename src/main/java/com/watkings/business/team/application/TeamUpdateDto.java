@@ -11,7 +11,7 @@ public class TeamUpdateDto {
 
 	private String name;
 
-	private Player capitain;
+	private Long capitainId;
 
 	public Date getFaundationDate() {
 		return faundationDate;
@@ -37,11 +37,11 @@ public class TeamUpdateDto {
 		this.name = name;
 	}
 
-	public Player getCapitain() {
-		return capitain;
+	public Long getCapitain() {
+		return capitainId;
 	}
 
-	public void setCapitain(Player capitain) {
-		this.capitain = capitain;
+	public void setCapitain(Long capitain) {
+		this.capitainId = capitain;
 	}
 }

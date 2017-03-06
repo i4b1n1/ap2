@@ -30,10 +30,10 @@ public class MatchService {
 		if(matchUpdateDto.getMatchDate()!=null)
 			match.setMatchDate(matchUpdateDto.getMatchDate());
 		match.setReferee(refereeRepository.getRandomReferee());
-		if(matchUpdateDto.getTeam1()!=null)
-			match.setTeam1(teamRepository.findById(matchUpdateDto.getTeam1()));
-		if(matchUpdateDto.getTeam2()!=null)
-			match.setTeam2(teamRepository.findById(matchUpdateDto.getTeam2()));
+		if(matchUpdateDto.getTeam1Id()!=null)
+			match.setTeam1(teamRepository.findById(matchUpdateDto.getTeam1Id()));
+		if(matchUpdateDto.getTeam2Id()!=null)
+			match.setTeam2(teamRepository.findById(matchUpdateDto.getTeam2Id()));
 		
 	}
 

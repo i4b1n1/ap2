@@ -10,7 +10,7 @@ public class MatchUpdateDto {
 
 //	private int courtId;
 
-	private int refereeId;
+//	private int refereeId;
 
 	private Long team1Id;
 
@@ -40,15 +40,15 @@ public class MatchUpdateDto {
 //		this.courtId = courtId;
 //	}
 
-	public int getReferee() {
-		return refereeId;
-	}
+//	public int getRefereeId() {
+//		return refereeId;
+//	}
+//
+//	public void setReferee(int referee) {
+//		this.refereeId = referee;
+//	}
 
-	public void setReferee(int referee) {
-		this.refereeId = referee;
-	}
-
-	public Long getTeam1() {
+	public Long getTeam1Id() {
 		return team1Id;
 	}
 
@@ -56,7 +56,7 @@ public class MatchUpdateDto {
 		this.team1Id = team1;
 	}
 
-	public Long getTeam2() {
+	public Long getTeam2Id() {
 		return team2Id;
 	}
 

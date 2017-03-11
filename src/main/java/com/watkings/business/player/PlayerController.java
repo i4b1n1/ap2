@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.front.FrontController;
+import com.login.LoginController;
 import com.watkings.business.player.application.PlayerService;
 import com.watkings.business.player.application.PlayerUpdateDto;
 import com.watkings.domain.Player;
@@ -31,15 +31,14 @@ public class PlayerController {
 	@Autowired 
 	PlayerRepository playerRepository;
 	Log log = LogFactory.getLog(PlayerController.class);
-	//nie wiem do czego to wykorzystac
+
+	//jest
 	@RequestMapping(value="/scorers-classification/{leagueId}", method = RequestMethod.GET)
 	public List<ScorersCassification> scorersList(@PathVariable int leagueId){
 		return scorersRepository.findByLeagueIdOrderByBramkiDesc(leagueId);
 	}
 	
 	
-	
-	//url = 'http://localhost:2990/update-player/'  + idPilkarz.value + "/"+ imiePilkarz.value + "/"+ nazwiskoPilkarz.value + "/"+ pozycjaPilkarz.value + "/"+ teamPilkarz.value + "/"+ narodowscPilkarz.value ).
 	@Transactional
 	@RequestMapping(value="/update-player/{playerId}", method = RequestMethod.POST)
 	public void updatePlayer(@PathVariable int playerId,@RequestBody PlayerUpdateDto playerUpdateDto){
@@ -47,7 +46,6 @@ public class PlayerController {
 		playerService.updatePlayer(player, playerUpdateDto);
 	}
 	
-	//url = 'http://localhost:2990/add-player/'  + imiePilkarz.value + "/"+ nazwiskoPilkarz.value + "/"+ pozycjaPilkarz.value + "/"+ karyPilkarz.value + "/"+ ligaPilkarz.value ).
 	@RequestMapping(value="/add-player", method = RequestMethod.POST)
 	public void addPlayer(@RequestBody PlayerUpdateDto playerUpdateDto){
 		Player player = new Player();

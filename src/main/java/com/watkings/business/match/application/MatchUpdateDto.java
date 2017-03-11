@@ -8,10 +8,6 @@ public class MatchUpdateDto {
 
 	private Date matchDate;
 
-//	private int courtId;
-
-//	private int refereeId;
-
 	private Long team1Id;
 
 	private Long team2Id;

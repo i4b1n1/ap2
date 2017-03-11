@@ -1,4 +1,4 @@
-package com.front;
+package com.login;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,20 +17,14 @@ import com.dto.MatchA;
 import com.dto.TeamA;
 
 @RestController
-public class FrontController {
+public class LoginController {
 
-	Log log = LogFactory.getLog(FrontController.class);
+	Log log = LogFactory.getLog(LoginController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homePage() {
 		return "index";
 	}
-
-
-	
-
-
-
 
 
 	@RequestMapping(value = "/logging/{login}/{key}", method = RequestMethod.GET)

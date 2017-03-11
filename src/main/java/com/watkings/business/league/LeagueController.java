@@ -31,11 +31,6 @@ public class LeagueController {
 		return leagueTablerepo.findByTeamId(teamId);
 	}
 	
-	@RequestMapping(value="/results/{leagueId}/{matchweekNumber}")
-	//wyniki dla podanej kolejki danej ligi
-	public List<Results> leagueResults(@PathVariable int leagueId, @PathVariable int matchweekNumber){
-		return resultsRepo.findByMatchweekNumberAndLeagueIdOrderByMatchId(matchweekNumber, leagueId);
-	}
 	
 	@RequestMapping(value="results/last-matchweek")
 	//wyniki ostatniej kolejki

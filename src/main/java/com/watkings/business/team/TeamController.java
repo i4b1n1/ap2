@@ -59,13 +59,4 @@ public class TeamController {
 		return result;
 	}
 
-	
-	@RequestMapping(value = "insert/team/{nazwa}/{liga}/{pozycja}", method = RequestMethod.POST)
-	public void insertTeam(
-			@PathVariable("nazwa") String nazwa,
-			@PathVariable("liga") String liga,
-			@PathVariable("pozycja") String pozycja) {
-		log.info("insert team " + nazwa + " " + liga + " " + pozycja);
-
-	}
 }

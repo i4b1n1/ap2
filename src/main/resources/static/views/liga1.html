@@ -10,10 +10,10 @@
 
 					<ul class="nav navbar-nav">
 						<li><a ng-click="liga('all')" href="#/panel">Glowna</a></li>
-						<li class="active"><a ng-click="liga('l1')" href="#/liga1">Liga
+						<li class="active"><a ng-click="liga('1')" href="#/liga1">Liga
 								1</a></li>
-						<li><a ng-click="liga('l2')" href="#/liga2">Liga 2</a></li>
-						<li><a ng-click="liga('l3')" href="#/liga3">Liga 3</a></li>
+						<li><a ng-click="liga('2')" href="#/liga2">Liga 2</a></li>
+						<li><a ng-click="liga('3')" href="#/liga3">Liga 3</a></li>
 						<li><a ng-click="create()" id="createButton">Edycja</a></li>
 					</ul>
 
@@ -37,8 +37,6 @@
 	</div>
 
 
-
-
 	<div class="row">
 		
 		<div class="bestPlayer  container-fluid col-lg-3 text-center">
@@ -46,26 +44,28 @@
 			<table id="tScoreMatchs" class="table-bordered table-hover">
 				<thead>
 					<tr class="warning">
-						<th class="warning" data-field="id">#</th>
-						<th class="warning" data-field="team1">Team 1</th>
-						<th class="warning" data-field="team2">Team 2</th>
-						<th class="danger" data-field="date">Data</th>
-						<th class="warning" data-field="score">Wynik</th>
+						<th class="warning" data-field="playerId">#</th>
+						<th class="warning" data-field="bramki">Bramki</th>
+						<th class="warning" data-field="druzyna">Druzyna</th>
+						<th class="danger" data-field="leagueId">LeagueId</th>
+						<th class="warning" data-field="zawodnik">Zawodnik</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="danger" ng-repeat="data in scoreMatchs"
+					<tr class="danger" ng-repeat="data in scorersclassification"
 						data-toggle="modal" data-target="#myModal"
 						ng-click="showData(data)">
-						<td>{{ data.id }}</td>
-						<td>{{ data.team1.name }}</td>
-						<td>{{ data.team2.name }}</td>
-						<td>{{ data.date }}</td>
-						<td>{{ data.scoreT1 + ' : ' + data.scoreT2 }}</td>
+						<td>{{ data.playerId }}</td>
+						<td>{{ data.bramki }}</td>
+						<td>{{ data.druzyna }}</td>
+						<td>{{ data.leagueId }}</td>
+						<td>{{ data.zawodnik }}</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
+
+
 
 		<div class="scoreMatchs  container-fluid col-lg-3 text-center">
 			<h2>Score Match</h2>

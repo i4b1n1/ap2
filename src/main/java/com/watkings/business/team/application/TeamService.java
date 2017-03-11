@@ -12,7 +12,7 @@ public class TeamService {
 	@Autowired
 	TeamRepository teamRepository;
 	@Autowired
-	PlayerRepository platerRepository;
+	PlayerRepository playerRepository;
 	public void updateTeam(Team team, TeamUpdateDto teamUpdateDto) {
 		
 		if(teamUpdateDto.getFaundationDate()!=null)
@@ -20,7 +20,7 @@ public class TeamService {
 		if(teamUpdateDto.getName()!=null)
 			team.setName(teamUpdateDto.getName());
 		if(teamUpdateDto.getCapitain()!=null)
-			team.setPlayer(teamUpdateDto.getCapitain());
+			team.setPlayer(playerRepository.findById(teamUpdateDto.getCapitain().intValue()));
 		if(teamUpdateDto.getLeagueId()!=null)
 		team.setLeagueId(teamUpdateDto.getLeagueId());
 		

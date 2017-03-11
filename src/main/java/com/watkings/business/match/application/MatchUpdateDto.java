@@ -1,25 +1,18 @@
 package com.watkings.business.match.application;
 
-import java.util.Date;
-
-
-import com.watkings.domain.Court;
-import com.watkings.domain.Referee;
-import com.watkings.domain.Team;
-
 public class MatchUpdateDto {
 
 	private Boolean isFinished;
 
-	private Date matchDate;
+	private String matchDate;
 
-	private Court court;
+	private Integer court;
 
-	private Referee referee;
+	private Integer referee;
 
-	private Team team1;
+	private Integer team1;
 
-	private Team team2;
+	private Integer team2;
 
 	public Boolean getIsFinished() {
 		return isFinished;
@@ -29,44 +22,45 @@ public class MatchUpdateDto {
 		this.isFinished = isFinished;
 	}
 
-	public Date getMatchDate() {
+	public String getMatchDate() {
 		return matchDate;
 	}
 
-	public void setMatchDate(Date matchDate) {
+	public void setMatchDate(String matchDate) {
 		this.matchDate = matchDate;
 	}
 
-	public Court getCourt() {
+	public Integer getCourt() {
 		return court;
 	}
 
-	public void setCourt(Court court) {
+	public void setCourt(Integer court) {
 		this.court = court;
 	}
 
-	public Referee getReferee() {
+	public Integer getReferee() {
 		return referee;
 	}
 
-	public void setReferee(Referee referee) {
+	public void setReferee(Integer referee) {
 		this.referee = referee;
 	}
 
-	public Team getTeam1() {
+	public Integer getTeam1() {
 		return team1;
 	}
 
-	public void setTeam1(Team team1) {
+	public void setTeam1(Integer team1) {
 		this.team1 = team1;
 	}
 
-	public Team getTeam2() {
+	public Integer getTeam2() {
 		return team2;
 	}
 
-	public void setTeam2(Team team2) {
+	public void setTeam2(Integer team2) {
 		this.team2 = team2;
 	}
+
 
 }

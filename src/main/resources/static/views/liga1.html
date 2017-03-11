@@ -36,11 +36,38 @@
 		<div class="col-lg-3 text-center"></div>
 	</div>
 
+
+
+
 	<div class="row">
-		<div class="  col-lg-1 text-center"></div>
+		
+		<div class="bestPlayer  container-fluid col-lg-3 text-center">
+			<h2>Najlepsi Pilakrze </h2>
+			<table id="tScoreMatchs" class="table-bordered table-hover">
+				<thead>
+					<tr class="warning">
+						<th class="warning" data-field="id">#</th>
+						<th class="warning" data-field="team1">Team 1</th>
+						<th class="warning" data-field="team2">Team 2</th>
+						<th class="danger" data-field="date">Data</th>
+						<th class="warning" data-field="score">Wynik</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="danger" ng-repeat="data in scoreMatchs"
+						data-toggle="modal" data-target="#myModal"
+						ng-click="showData(data)">
+						<td>{{ data.id }}</td>
+						<td>{{ data.team1.name }}</td>
+						<td>{{ data.team2.name }}</td>
+						<td>{{ data.date }}</td>
+						<td>{{ data.scoreT1 + ' : ' + data.scoreT2 }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
-
-		<div class="scoreMatchs  container-fluid col-lg-4 text-center">
+		<div class="scoreMatchs  container-fluid col-lg-3 text-center">
 			<h2>Score Match</h2>
 			<table id="tScoreMatchs" class="table-bordered table-hover">
 				<thead>
@@ -66,8 +93,8 @@
 			</table>
 		</div>
 
-		<div class="  col-lg-2 text-center"></div>
-		<div class="futureMatch container-fluid col-lg-4 text-center">
+		
+		<div class="futureMatch container-fluid col-lg-3 text-center">
 			<h2>Future Match</h2>
 			<table id="tFutureMatch" class="table-bordered table-hover">
 				<thead>
@@ -93,7 +120,6 @@
 			</table>
 		</div>
 
-		<div class="  col-lg-1 text-center"></div>
 		<div class="row">
 			<div class="col-lg-12">
 
@@ -167,62 +193,69 @@
 								<button type="button" class="btn btn-info btn-lg"
 									data-toggle="modal" data-target="#myModalEdycja"
 									ng-click="editData()">Edit Details</button>
-								
-									<button type="button" class="btn btn-default"
-										data-dismiss="modal">Close</button>
-								</div>
+
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
 							</div>
-
 						</div>
+
 					</div>
-					<!-- Modal  edycja--------------------------------------------------------- -->
-					<div class="modal fade" id="myModalEdycja" role="dialog">
-						<div class="modal-dialog">
-
-							<!-- Modal content-->
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Modal Header</h4>
-								</div>
-								<div class="modal-body">
-									<div class="row">
-
-										<div class="form-group">
-											<label> Team 1 Name </label> <input value="{{team1name}}" class="form-control"	id="team1name" />
-										</div>
-										<div class="form-group">
-											<label> Team 2 Score </label> <input value="{{team1score}}" class="form-control"	id="team1score" />
-										</div>
-										<div class="form-group">
-											<label> Team 2 Name </label> <input  value="{{team2name}}" class="form-control"	id="team2name" />
-										</div>
-										<div class="form-group">
-											<label>Team 2 Score </label> <input value="{{team2score}}" class="form-control"	id="" />
-										</div>
-										<div class="form-group">
-											<label> Date </label> <input value="{{date}}" class="form-control"	id="date" />
-										</div>
-										<div class="form-group">
-											<label> Liga </label> <input value="{{liga}}" class="form-control"	id="liga" />
-										</div>
-								
-									</div>
-								</div>
-
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default"
-										data-dismiss="modal" ng-click="saveEditData()">Save Edit Data</button>
-								</div>
-							</div>
-
-						</div>
-					</div>
-
 				</div>
+				<!-- Modal  edycja--------------------------------------------------------- -->
+				<div class="modal fade" id="myModalEdycja" role="dialog">
+					<div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Modal Header</h4>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+
+									<div class="form-group">
+										<label> Team 1 Name </label> <input value="{{team1name}}"
+											class="form-control" id="team1name" />
+									</div>
+									<div class="form-group">
+										<label> Team 2 Score </label> <input value="{{team1score}}"
+											class="form-control" id="team1score" />
+									</div>
+									<div class="form-group">
+										<label> Team 2 Name </label> <input value="{{team2name}}"
+											class="form-control" id="team2name" />
+									</div>
+									<div class="form-group">
+										<label>Team 2 Score </label> <input value="{{team2score}}"
+											class="form-control" id="" />
+									</div>
+									<div class="form-group">
+										<label> Date </label> <input value="{{date}}"
+											class="form-control" id="date" />
+									</div>
+									<div class="form-group">
+										<label> Liga </label> <input value="{{liga}}"
+											class="form-control" id="liga" />
+									</div>
+
+								</div>
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal" ng-click="saveEditData()">Save
+									Edit Data</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
 			</div>
-
-
 		</div>
 
+
 	</div>
+
+</div>

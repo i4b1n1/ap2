@@ -23,8 +23,13 @@
 	</div>
 	<div class="row">
 		<div class="col-md-3">
-			<h2>Dodaj Pilkarza</h2>
+			<h2>Dodaj lub Edytuj Pi³karza</h2>
 			<form role="form">
+				<div class="form-group">
+
+					<label > id </label> <input
+						class="form-control" id="idPilkarz" />
+				</div>
 				<div class="form-group">
 
 					<label > Imie </label> <input
@@ -42,78 +47,101 @@
 				</div>
 				<div class="form-group">
 
-					<label > Kary </label> <input
-						class="form-control" id="karyPilkarz" />
+					<label > Team </label> <input
+						class="form-control" id="teamPilkarz" />
 				</div>
 				<div class="form-group">
 
-					<label > Liga </label> <input
-						class="form-control" id="ligaPilkarz" />
+					<label > Narodowsc </label> <input
+						class="form-control" id="narodowscPilkarz" />
 				</div>
 
 				<button type="submit" class="btn btn-default" id="sybmitPilkarz" ng-click="submitPilkarz()">Submit</button>
 			</form>
 		</div>
 		<div class="col-md-3">
-			<h2>Dodaj wynik meczu</h2>
+			<h2>Dodaj  lub Edytuj mecz</h2>
 			<form role="form">
 				<div class="form-group">
 
+					<label > id </label> <input
+						class="form-control" id="idMecz" />
+				</div>
+				<div class="form-group">
+
 					<label > Nazwa Teamu 1 </label> <input
-						class="form-control" id="team1Wynik" />
+						class="form-control" id="team1Mecz" />
 				</div>
 				<div class="form-group">
 
 					<label > Nazwa Teamu 2 </label> <input
-						class="form-control" id="team2Wynik" />
+						class="form-control" id="team2Mecz" />
 				</div>
 				<div class="form-group">
 
 					<label > Data </label> <input
-						class="form-control" id="dataWynik" />
+						class="form-control" id="dataMecz" />
 				</div>
 				<div class="form-group">
 
-					<label > Wynik </label> <input
-						class="form-control" id="wynikWynik" />
+					<label > Court </label> <input
+						class="form-control" id="courtMecz" />
 				</div>
 				<div class="form-group">
 
-					<label > Liga </label> <input
-						class="form-control" id="ligaWynik" />
+					<label > Reffere </label> <input
+						class="form-control" id="reffereMecz" />
 				</div>
-				<button type="submit" class="btn btn-default" id="submitWynik" ng-click="submitWynik()">Submit</button>
+				
+				<button type="submit" class="btn btn-default" id="submitWynik" ng-click="submitMecz()">Submit</button>
 			</form>
 		</div>
+
 		<div class="col-md-3">
-			<h2>Dodaj date przyszlego meczy</h2>
+			<h2>Dodaj wydarzenie  meczowe</h2>
 			<form role="form">
-				<div class="form-group">
+			<div class="form-group">
 
-					<label > Nazwa Teamu 1 </label> <input
-						class="form-control" id="team1Przyszly" />
+					<label > id Meczu</label> <input
+						class="form-control" id="idEvent" />
 				</div>
 				<div class="form-group">
 
-					<label > Nazwa Teamu 2 </label> <input
-						class="form-control" id="team2Przyszly" />
+					<label > id Teamu </label> <input
+						class="form-control" id="idTeamuEvent" />
 				</div>
 				<div class="form-group">
 
-					<label > Data </label> <input
-						class="form-control" id="dataPrzyszly" />
+					<label > Minuta </label> <input
+						class="form-control" id="minutaEvent" />
 				</div>
 				<div class="form-group">
 
-					<label > Liga </label> <input
-						class="form-control" id="ligaPrzyszly" />
+					<label > Typ </label> <input
+						class="form-control" id="typEvent" />
 				</div>
-				<button type="submit" class="btn btn-default" id="sybmitPrzyszly" ng-click="submitPrzyszly()">Submit</button>
+				<div class="form-group">
+
+					<label > Wartosc </label> <input
+						class="form-control" id="wartoscEvent" />
+				</div>
+				<div class="form-group">
+
+					<label > Id Zawodnik </label> <input
+						class="form-control" id="zawodnikEvent" />
+				</div>
+				
+				<button type="submit" class="btn btn-default" id="submitWynik" ng-click="submitEvent()">Submit</button>
 			</form>
 		</div>
-		<div class="col-md-3">
-			<h2>Dodaj Team</h2>
+		 <div class="col-md-3">
+			<h2>Dodaj lub Edytuj Team</h2>
 			<form role="form">
+			<div class="form-group">
+
+					<label > id </label> <input
+						class="form-control" id="idTeam" />
+				</div>
 				<div class="form-group">
 
 					<label > Nazwa </label> <input
@@ -124,17 +152,15 @@
 					<label > Liga </label> <input
 						class="form-control" id="ligaTeam" />
 				</div>
+
 				<div class="form-group">
 
-					<label > Pozycja w lidze </label> <input 
-						class="form-control" id="pozycjaTeam" />
+					<label > Kapitan </label> <input
+						class="form-control" id="captainTeam" />
 				</div>
-
-
-
 				<button type="submit" class="btn btn-default" id="submitTeam" ng-click="submitTeam()">Submit</button>
 			</form>
-		</div>
+		</div> 
 	</div>
 	<div class="row">
 	{{info}}

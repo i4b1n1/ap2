@@ -13,18 +13,18 @@ public class MatchService {
 	MatchRepository matchRepository;
 
 	public void updateMatch(Match match, MatchUpdateDto matchUpdateDto) { 
-		if(matchUpdateDto.getCourt()!=null)
-			match.setCourt(matchUpdateDto.getCourt());
-		if(matchUpdateDto.getIsFinished()!=null)
-			match.setIsFinished(matchUpdateDto.getIsFinished().booleanValue());
-		if(matchUpdateDto.getMatchDate()!=null)
-			match.setMatchDate(matchUpdateDto.getMatchDate());
-		if(matchUpdateDto.getReferee()!=null)
-			match.setReferee(matchUpdateDto.getReferee());
-		if(matchUpdateDto.getTeam1()!=null)
-			match.setTeam1(matchUpdateDto.getTeam1());
-		if(matchUpdateDto.getTeam2()!=null)
-			match.setTeam1(matchUpdateDto.getTeam2());
+//		if(matchUpdateDto.getCourt()!=null)
+//			match.setCourt(matchUpdateDto.getCourt());
+//		if(matchUpdateDto.getIsFinished()!=null)
+//			match.setIsFinished(matchUpdateDto.getIsFinished().booleanValue());
+//		if(matchUpdateDto.getMatchDate()!=null)
+//			match.setMatchDate(matchUpdateDto.getMatchDate());
+//		if(matchUpdateDto.getReferee()!=null)
+//			match.setReferee(matchUpdateDto.getReferee());
+//		if(matchUpdateDto.getTeam1()!=null)
+//			match.setTeam1(matchUpdateDto.getTeam1());
+//		if(matchUpdateDto.getTeam2()!=null)
+//			match.setTeam1(matchUpdateDto.getTeam2());
 		
 	}
 

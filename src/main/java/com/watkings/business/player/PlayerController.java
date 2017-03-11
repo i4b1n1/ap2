@@ -31,12 +31,15 @@ public class PlayerController {
 	@Autowired 
 	PlayerRepository playerRepository;
 	Log log = LogFactory.getLog(PlayerController.class);
-	
+	//nie wiem do czego to wykorzystac
 	@RequestMapping(value="/scorers-classification/{leagueId}", method = RequestMethod.GET)
 	public List<ScorersCassification> scorersList(@PathVariable int leagueId){
 		return scorersRepository.findByLeagueIdOrderByBramkiDesc(leagueId);
 	}
 	
+	
+	
+	//url = 'http://localhost:2990/update-player/'  + idPilkarz.value + "/"+ imiePilkarz.value + "/"+ nazwiskoPilkarz.value + "/"+ pozycjaPilkarz.value + "/"+ teamPilkarz.value + "/"+ narodowscPilkarz.value ).
 	@Transactional
 	@RequestMapping(value="/update-player/{playerId}", method = RequestMethod.POST)
 	public void updatePlayer(@PathVariable int playerId,@RequestBody PlayerUpdateDto playerUpdateDto){
@@ -44,20 +47,12 @@ public class PlayerController {
 		playerService.updatePlayer(player, playerUpdateDto);
 	}
 	
+	//url = 'http://localhost:2990/add-player/'  + imiePilkarz.value + "/"+ nazwiskoPilkarz.value + "/"+ pozycjaPilkarz.value + "/"+ karyPilkarz.value + "/"+ ligaPilkarz.value ).
 	@RequestMapping(value="/add-player", method = RequestMethod.POST)
 	public void addPlayer(@RequestBody PlayerUpdateDto playerUpdateDto){
 		Player player = new Player();
 		playerService.updatePlayer(player, playerUpdateDto);
 	}
 	
-	@RequestMapping(value = "insert/pilkarz/{imie}/{nazwisko}/{pozycja}/{kary}/{liga}", method = RequestMethod.POST)
-	public void insertPilkarz(
-			@PathVariable("imie") String imie, 
-			@PathVariable("nazwisko") String nazwisko,
-			@PathVariable("pozycja") String pozycja, 
-			@PathVariable("kary") String kary,
-			@PathVariable("liga") String liga) {
-		log.info("insert pilkarz " + imie + " " + nazwisko + " " + pozycja);
-	}
 	
 }

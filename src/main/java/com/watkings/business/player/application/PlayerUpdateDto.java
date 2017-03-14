@@ -4,23 +4,14 @@ import java.util.Date;
 
 public class PlayerUpdateDto {
 
-	private Date dateOfBirth;
-
 	private String name;
 
 	private String nationality;
 
 	private String position;
 
-	private Long teamId;
+	private String teamId;
 
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
 
 	public String getName() {
 		return name;
@@ -47,11 +38,11 @@ public class PlayerUpdateDto {
 	}
 
 	public Long getTeamId() {
-		return teamId;
+		return Long.getLong(teamId);
 	}
 
 	public void setTeam(Long teamId) {
-		this.teamId = teamId;
+		this.teamId = teamId.toString();
 	}
 	
 }

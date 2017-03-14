@@ -28,32 +28,32 @@
 				<div class="form-group">
 
 					<label > id </label> <input
-						class="form-control" id="idPilkarz" />
+						class="form-control"   ng-init="idPilkarz=''"  ng-model="idPilkarz" />
 				</div>
 				<div class="form-group">
 
 					<label > Imie </label> <input
-						class="form-control" id="imiePilkarz" />
+						class="form-control" ng-model="imiePilkarz" />
 				</div>
 				<div class="form-group">
 
 					<label > Nazwisko </label> <input
-						class="form-control" id="nazwiskoPilkarz" />
+						class="form-control" ng-model="nazwiskoPilkarz" />
 				</div>
 				<div class="form-group">
 
 					<label > Pozycja </label> <input
-						class="form-control" id="pozycjaPilkarz" />
+						class="form-control" ng-model="pozycjaPilkarz" />
 				</div>
 				<div class="form-group">
 
 					<label > Team </label> <input
-						class="form-control" id="teamPilkarz" />
+						class="form-control" ng-model="teamPilkarz" />
 				</div>
 				<div class="form-group">
 
 					<label > Narodowsc </label> <input
-						class="form-control" id="narodowscPilkarz" />
+						class="form-control" ng-model="narodowscPilkarz" />
 				</div>
 
 				<button type="submit" class="btn btn-default" id="sybmitPilkarz" ng-click="submitPilkarz()">Submit</button>
@@ -65,32 +65,22 @@
 				<div class="form-group">
 
 					<label > id </label> <input
-						class="form-control" id="idMecz" />
+						class="form-control" ng-init="idMecz=''"  ng-model="idMecz" />
 				</div>
 				<div class="form-group">
 
 					<label > Nazwa Teamu 1 </label> <input
-						class="form-control" id="team1Mecz" />
+						class="form-control" ng-model="team1Mecz" />
 				</div>
 				<div class="form-group">
 
 					<label > Nazwa Teamu 2 </label> <input
-						class="form-control" id="team2Mecz" />
+						class="form-control" ng-model="team2Mecz" />
 				</div>
 				<div class="form-group">
 
 					<label > Data </label> <input
-						class="form-control" id="dataMecz" />
-				</div>
-				<div class="form-group">
-
-					<label > Court </label> <input
-						class="form-control" id="courtMecz" />
-				</div>
-				<div class="form-group">
-
-					<label > Reffere </label> <input
-						class="form-control" id="reffereMecz" />
+						class="form-control" ng-model="dataMecz" />
 				</div>
 				
 				<button type="submit" class="btn btn-default" id="submitWynik" ng-click="submitMecz()">Submit</button>
@@ -103,32 +93,32 @@
 			<div class="form-group">
 
 					<label > id Meczu</label> <input
-						class="form-control" id="idEvent" />
+						class="form-control" ng-model="idEvent" />
 				</div>
 				<div class="form-group">
 
 					<label > id Teamu </label> <input
-						class="form-control" id="idTeamuEvent" />
+						class="form-control" ng-model="idTeamuEvent" />
 				</div>
 				<div class="form-group">
 
 					<label > Minuta </label> <input
-						class="form-control" id="minutaEvent" />
+						class="form-control" ng-model="minutaEvent" />
 				</div>
 				<div class="form-group">
 
 					<label > Typ </label> <input
-						class="form-control" id="typEvent" />
+						class="form-control" ng-model="typEvent" />
 				</div>
 				<div class="form-group">
 
 					<label > Wartosc </label> <input
-						class="form-control" id="wartoscEvent" />
+						class="form-control" ng-model="wartoscEvent" />
 				</div>
 				<div class="form-group">
 
 					<label > Id Zawodnik </label> <input
-						class="form-control" id="zawodnikEvent" />
+						class="form-control" ng-model="zawodnikEvent" />
 				</div>
 				
 				<button type="submit" class="btn btn-default" id="submitWynik" ng-click="submitEvent()">Submit</button>
@@ -140,23 +130,23 @@
 			<div class="form-group">
 
 					<label > id </label> <input
-						class="form-control" id="idTeam" />
+						class="form-control" ng-model="idTeam" />
 				</div>
 				<div class="form-group">
 
 					<label > Nazwa </label> <input
-						class="form-control" id="nazwaTeam" />
+						class="form-control" ng-model="nazwaTeam" />
 				</div>
 				<div class="form-group">
 
 					<label > Liga </label> <input
-						class="form-control" id="ligaTeam" />
+						class="form-control" ng-model="ligaTeam" />
 				</div>
 
 				<div class="form-group">
 
 					<label > Kapitan </label> <input
-						class="form-control" id="captainTeam" />
+						class="form-control" ng-model="captainTeam" />
 				</div>
 				<button type="submit" class="btn btn-default" id="submitTeam" ng-click="submitTeam()">Submit</button>
 			</form>

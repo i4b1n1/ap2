@@ -15,8 +15,6 @@ public class PlayerService {
 
 	public void updatePlayer(Player player, PlayerUpdateDto playerUpdateDto) {
 		
-		if(playerUpdateDto.getDateOfBirth()!=null)
-			player.setDateOfBirth(playerUpdateDto.getDateOfBirth());
 		if(playerUpdateDto.getName()!=null)
 			player.setName(playerUpdateDto.getName());
 		if(playerUpdateDto.getNationality()!=null)

@@ -36,6 +36,7 @@ public class TeamController {
 
 	@RequestMapping(value="/players/list/{id}", method = RequestMethod.GET)
 	public List<Player> getTeamPlayers(@PathVariable int id) {
+		log.info("/players/list/{id}");
 		List<Player> result = playerRepository.getTemSquad(id);
 		return result;
 	}
@@ -43,18 +44,21 @@ public class TeamController {
 	@Transactional
 	@RequestMapping(value="/update-team/{teamId}", method = RequestMethod.POST)
 	public void updatePlayer(@PathVariable Long teamId,@RequestBody TeamUpdateDto teamUpdateDto){
-		Team team = teamRepository.findById(teamId);
-		teamService.updateTeam(team, teamUpdateDto);
+		log.info("update-team"+ teamUpdateDto);
+//		Team team = teamRepository.findById(teamId);
+//		teamService.updateTeam(team, teamUpdateDto);
 	}
 	
 	@RequestMapping(value="/add-team", method = RequestMethod.POST)
 	public void addPlayer(@RequestBody TeamUpdateDto teamUpdateDto){
-		Team team = new Team();
-		teamService.updateTeam(team, teamUpdateDto);
+		log.info("add-team"+ teamUpdateDto);
+//		Team team = new Team();
+//		teamService.updateTeam(team, teamUpdateDto);
 	}
 	
 	@RequestMapping(value="/team-info/{teamId}", method = RequestMethod.GET)
 	public Team teamInfo(@PathVariable Long teamId){
+		log.info("info-team"+ teamId);
 		Team result = teamRepository.findById(teamId); 
 		return result;
 	}

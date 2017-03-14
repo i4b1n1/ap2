@@ -31,18 +31,21 @@ public class MatchController {
 	@Transactional
 	@RequestMapping(value="/update-match/{matchId}", method = RequestMethod.POST)
 	public void updateMatch(@PathVariable Long matchId,@RequestBody MatchUpdateDto matchUpdateDto){
-		Match match = matchRepository.findById(matchId);
-		matchService.updateMatch(match, matchUpdateDto);
+		log.info("/update-match/{matchId}");
+//		Match match = matchRepository.findById(matchId);
+//		matchService.updateMatch(match, matchUpdateDto);
 	}
 	
 	@RequestMapping(value="/add-match", method = RequestMethod.POST)
 	public void addPlayer(@RequestBody MatchUpdateDto matchUpdateDto){
-		Match match = new Match();
-		matchService.updateMatch(match, matchUpdateDto);
+		log.info("/add-match");
+//		Match match = new Match();
+//		matchService.updateMatch(match, matchUpdateDto);
 	}
 	
 	@RequestMapping(value="/match-info/{matchId}", method = RequestMethod.GET)
 	public Match getMatchInfo(@PathVariable Long matchId){
+		log.info("/match-info/{matchId}");
 		Match result = matchRepository.findById(matchId);
 		return result;
 	}

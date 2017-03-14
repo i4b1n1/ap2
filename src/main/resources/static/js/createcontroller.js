@@ -10,7 +10,7 @@ app.controller('createController', function($scope, $http, $location,
 	}
 
 	$scope.submitTeam = function() {
-		if(idTeam.value!= undefined || idTeam.value!= null){
+		if(idTeam.value!= undefined){
 			$http.post(
 					url = 'http://localhost:2990/update-team/' + idTeam.value + "/"+ nazwaTeam.value + "/"+ ligaTeam.value + "/"+ captainTeam.value).
 					success(function(data) {
@@ -32,24 +32,31 @@ app.controller('createController', function($scope, $http, $location,
 	}
 	
 	$scope.submitMecz = function() {
+				
+		var dane = {
+				 'isFinished' : "true" ,
+				'matchDate' : $scope.dataMecz ,
+				'team1Id' : $scope.team1Mecz , 
+				'team2Id' : $scope.team2Mecz 
+				 }
 		
-		if(idMecz.value!= undefined || idMecz.value!= null){
+		if($scope.idMecz!= ""){
 		
 			$http.post(
-					url = 'http://localhost:2990/update-match/' + idMecz.value + "/"+ team1Mecz.value + "/"+ team2Mecz.value + "/"+ dataMecz.value + "/"+ courtMecz.value + "/"+ reffereMecz.value) .
-					success(function(data) {
-						$scope.info = "Dodano Przyzly";
+					'http://localhost:2990/update-match/' + $scope.idMecz + '',dane
+					).success(function(data) {
+						$scope.info = "update-match";
 			}).error(function(data) {
-				$scope.info = " Nie Dodano przyszly";
+				$scope.info = " Nie update-match";
 			});
 		}
 		else{
 			$http.post(
-					url = 'http://localhost:2990/add-match/' +  team1Mecz.value + "/"+ team2Mecz.value + "/"+ dataMecz.value + "/"+ courtMecz.value + "/"+ reffereMecz.value) .
-					success(function(data) {
-						$scope.info = "Dodano Przyzly";
+					 'http://localhost:2990/add-match/',dane 
+					 ).	success(function(data) {
+						$scope.info = "Dodano add-match";
 			}).error(function(data) {
-				$scope.info = " Nie Dodano przyszly";
+				$scope.info = " Nie add-match";
 			});
 		}
 
@@ -68,22 +75,28 @@ app.controller('createController', function($scope, $http, $location,
 	}
 	
 	$scope.submitPilkarz= function() {
-		if(idPilkarz.value!= undefined || idPilkarz.value!= null)
-			{
+		
+		var dane = {
+				 'name' : $scope.imiePilkarz + " " + $scope.nazwiskoPilkarz, 
+				'nationality' : $scope.narodowscPilkarz ,
+				'position' : $scope.pozycjaPilkarz , 
+				'teamId' : $scope.teamPilkarz 
+				 }
+		
+		if($scope.idPilkarz!= "" )
+			{					
 			$http.post(
-					url = 'http://localhost:2990/update-player/'  + idPilkarz.value + "/"+ imiePilkarz.value + "/"+ nazwiskoPilkarz.value + "/"+ pozycjaPilkarz.value + "/"+ teamPilkarz.value + "/"+ narodowscPilkarz.value ).
-					success(function(data) {
+					 'http://localhost:2990/update-player/' + $scope.idPilkarz +'',	dane
+					).success(function(data) {
 						$scope.info = "Dodano Pilkarz";
-			}).error(function(data) {
-				$scope.info = " Nie Dodano Pilkarz";
-			});	
-			
+					}).error(function(data) {
+						$scope.info = " Nie Dodano Pilkarz";
+					});			
 			}
 		else{
-			
 			$http.post(
-					url = 'http://localhost:2990/add-player/'  + imiePilkarz.value + "/"+ nazwiskoPilkarz.value + "/"+ pozycjaPilkarz.value + "/"+ karyPilkarz.value + "/"+ ligaPilkarz.value ).
-					success(function(data) {
+					'http://localhost:2990/add-player/',dane
+					).success(function(data) {
 						$scope.info = "Dodano Pilkarz";
 			}).error(function(data) {
 				$scope.info = " Nie Dodano Pilkarz";

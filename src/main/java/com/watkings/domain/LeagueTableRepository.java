@@ -13,4 +13,6 @@ public interface LeagueTableRepository extends CrudRepository<LeagueTable, Long>
 	public List<LeagueTable> findAll();
 
 	public List<LeagueTable> findByTeamId(int teamId);
+	
+	public List<LeagueTable> findByLeagueId(int leagueId);
 }

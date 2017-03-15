@@ -29,19 +29,21 @@ public class LeagueController {
 	ResultsRepository resultsRepo;
 	
 	Log log = LogFactory.getLog(LeagueController.class);
-	
-	@RequestMapping(value="/table/{teamId}", method=RequestMethod.GET)
+	//jest
+	@RequestMapping(value="/table/{leagueId}", method=RequestMethod.GET)
 	//"Tabela ligowa dla ligi o podanym ID")
-	public List<LeagueTable> getLeagueTable(@PathVariable int teamId){
+	public List<LeagueTable> getLeagueTable(@PathVariable int leagueId){
 		log.info("/table/{teamId}");
-		return leagueTablerepo.findByTeamId(teamId);
+		return leagueTablerepo.findByLeagueId(leagueId);//tutaj zmienilel z team id na ligaId
 	}
 	
-	
-	@RequestMapping(value="results/last-matchweek")
+	//jest
+	@RequestMapping(value="results/last-matchweek/{leagueId}")
 	//wyniki ostatniej kolejki
-	public List<Results> lastMatchweekResults(){
-		log.info("/results/last-matchweek");
+	//jak to wykorzystac
+	//dlaczego zwraca encje
+	public List<Results> lastMatchweekResults(@PathVariable int leagueId){
+		log.info("/results/last-matchweek  " + leagueId);
 		return resultsRepo.getLastMatchweekResults();
 	}
 }

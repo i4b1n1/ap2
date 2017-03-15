@@ -40,7 +40,7 @@ public class TeamController {
 		List<Player> result = playerRepository.getTemSquad(id);
 		return result;
 	}
-	
+	//jest
 	@Transactional
 	@RequestMapping(value="/update-team/{teamId}", method = RequestMethod.POST)
 	public void updatePlayer(@PathVariable Long teamId,@RequestBody TeamUpdateDto teamUpdateDto){
@@ -48,7 +48,7 @@ public class TeamController {
 //		Team team = teamRepository.findById(teamId);
 //		teamService.updateTeam(team, teamUpdateDto);
 	}
-	
+	//jest
 	@RequestMapping(value="/add-team", method = RequestMethod.POST)
 	public void addPlayer(@RequestBody TeamUpdateDto teamUpdateDto){
 		log.info("add-team   "+ teamUpdateDto);

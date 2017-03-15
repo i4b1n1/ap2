@@ -25,10 +25,10 @@ public class MatchService {
 	TeamRepository teamRepository;
 
 	public void updateMatch(Match match, MatchUpdateDto matchUpdateDto) { 
-		match.setCourt(courtRepository.getRandomCourt());
-		match.setIsFinished(false);
+//		match.setCourt(courtRepository.getRandomCourt());
+//		match.setIsFinished(false);
 //		if(matchUpdateDto.getMatchDate()!=null)
-//			match.setMatchDate(matchUpdateDto.getMatchDate());
+//			match.setMatchDate(new Date());
 //		match.setReferee(refereeRepository.getRandomReferee());
 //		if(matchUpdateDto.getTeam1Id()!=null)
 //			match.setTeam1(teamRepository.findById(matchUpdateDto.getTeam1Id()));

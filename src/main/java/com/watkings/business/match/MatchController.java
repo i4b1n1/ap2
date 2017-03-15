@@ -42,7 +42,8 @@ public class MatchController {
 //		Match match = new Match();
 //		matchService.updateMatch(match, matchUpdateDto);
 	}
-	
+	// tu sie cos psuje , ale nie moge dosc na szybko co to jest  
+	//ogolnbie chce to wykorzytsac do listy meczy z kolejki -> beda wyswietlay sie druzyny i informacje
 	@RequestMapping(value="/match-info/{matchId}", method = RequestMethod.GET)
 	public Match getMatchInfo(@PathVariable Long matchId){
 		log.info("/match-info/{matchId}");

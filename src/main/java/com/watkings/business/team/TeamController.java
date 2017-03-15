@@ -33,7 +33,7 @@ public class TeamController {
 	TeamService teamService;
 	Log log = LogFactory.getLog(TeamController.class);
 
-
+	//jest
 	@RequestMapping(value="/players/list/{id}", method = RequestMethod.GET)
 	public List<Player> getTeamPlayers(@PathVariable int id) {
 		log.info("/players/list/{id}");

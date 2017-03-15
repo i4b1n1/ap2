@@ -19,6 +19,7 @@ app.config(function($routeProvider) {
 		templateUrl : '/views/create.html',
 		controller : 'createController'
 	}).otherwise({
-		redirectTo : '/'
+		redirectTo : 'liga1',
+		controller : 'ligaController'
 	});
 });

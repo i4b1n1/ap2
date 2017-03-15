@@ -27,15 +27,15 @@ public class MatchController {
 	MatchService matchService;
 	
 	Log log = LogFactory.getLog(MatchController.class);
-	
+	//JEST
 	@Transactional
 	@RequestMapping(value="/update-match/{matchId}", method = RequestMethod.POST)
-	public void updateMatch(@PathVariable Long matchId,@RequestBody MatchUpdateDto matchUpdateDto){
+	public void updateMatch(@PathVariable int matchId,@RequestBody MatchUpdateDto matchUpdateDto){
 		log.info("/update-match/{matchId}");
 //		Match match = matchRepository.findById(matchId);
 //		matchService.updateMatch(match, matchUpdateDto);
 	}
-	
+	//JEST
 	@RequestMapping(value="/add-match", method = RequestMethod.POST)
 	public void addPlayer(@RequestBody MatchUpdateDto matchUpdateDto){
 		log.info("/add-match");

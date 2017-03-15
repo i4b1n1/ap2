@@ -35,10 +35,11 @@ public class PlayerController {
 	//jest
 	@RequestMapping(value="/scorers-classification/{leagueId}", method = RequestMethod.GET)
 	public List<ScorersCassification> scorersList(@PathVariable int leagueId){
+		log.info("/scorers-classification/{leagueId}");
 		return scorersRepository.findByLeagueIdOrderByBramkiDesc(leagueId);
 	}
 	
-	
+	//JEST
 	@Transactional
 	@RequestMapping(value="/update-player/{playerId}", method = RequestMethod.POST)
 	public void updatePlayer(@PathVariable int playerId,@RequestBody PlayerUpdateDto playerUpdateDto){
@@ -47,7 +48,7 @@ public class PlayerController {
 //		Player player = playerRepository.findById(playerId);
 //		playerService.updatePlayer(player, playerUpdateDto);
 	}
-	
+	//JEST
 	@RequestMapping(value="/add-player", method = RequestMethod.POST)
 	public void addPlayer(@RequestBody PlayerUpdateDto playerUpdateDto){
 		//String test = playerUpdateDto.getName() +" " + playerUpdateDto.getPosition() + " " + playerUpdateDto.getTeamId().toString() + " " + playerUpdateDto.getNationality();

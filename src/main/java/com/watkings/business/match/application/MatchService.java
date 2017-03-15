@@ -27,13 +27,13 @@ public class MatchService {
 	public void updateMatch(Match match, MatchUpdateDto matchUpdateDto) { 
 		match.setCourt(courtRepository.getRandomCourt());
 		match.setIsFinished(false);
-		if(matchUpdateDto.getMatchDate()!=null)
-			match.setMatchDate(matchUpdateDto.getMatchDate());
-		match.setReferee(refereeRepository.getRandomReferee());
-		if(matchUpdateDto.getTeam1Id()!=null)
-			match.setTeam1(teamRepository.findById(matchUpdateDto.getTeam1Id()));
-		if(matchUpdateDto.getTeam2Id()!=null)
-			match.setTeam2(teamRepository.findById(matchUpdateDto.getTeam2Id()));
+//		if(matchUpdateDto.getMatchDate()!=null)
+//			match.setMatchDate(matchUpdateDto.getMatchDate());
+//		match.setReferee(refereeRepository.getRandomReferee());
+//		if(matchUpdateDto.getTeam1Id()!=null)
+//			match.setTeam1(teamRepository.findById(matchUpdateDto.getTeam1Id()));
+//		if(matchUpdateDto.getTeam2Id()!=null)
+//			match.setTeam2(teamRepository.findById(matchUpdateDto.getTeam2Id()));
 		
 	}
 

@@ -5,27 +5,27 @@ import java.util.Date;
 import com.watkings.domain.Player;
 
 public class TeamUpdateDto {
-	private Date faundationDate;
+	private String faundationDate;
 	
-	private Long leagueId;
+	private String leagueId;
 
 	private String name;
 
-	private Long capitainId;
+	private String capitainId;
 
-	public Date getFaundationDate() {
+	public String getFaundationDate() {
 		return faundationDate;
 	}
 
-	public void setFaundationDate(Date faundationDate) {
+	public void setFaundationDate(String faundationDate) {
 		this.faundationDate = faundationDate;
 	}
 
-	public Long getLeagueId() {
+	public String getLeagueId() {
 		return leagueId;
 	}
 
-	public void setLeagueId(Long leagueId) {
+	public void setLeagueId(String leagueId) {
 		this.leagueId = leagueId;
 	}
 
@@ -37,11 +37,13 @@ public class TeamUpdateDto {
 		this.name = name;
 	}
 
-	public Long getCapitain() {
+	public String getCapitainId() {
 		return capitainId;
 	}
 
-	public void setCapitain(Long capitain) {
-		this.capitainId = capitain;
+	public void setCapitainId(String capitainId) {
+		this.capitainId = capitainId;
 	}
+
+
 }

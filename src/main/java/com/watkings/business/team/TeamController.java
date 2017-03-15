@@ -44,14 +44,14 @@ public class TeamController {
 	@Transactional
 	@RequestMapping(value="/update-team/{teamId}", method = RequestMethod.POST)
 	public void updatePlayer(@PathVariable Long teamId,@RequestBody TeamUpdateDto teamUpdateDto){
-		log.info("update-team"+ teamUpdateDto);
+		log.info("update-team  "+ teamUpdateDto);
 //		Team team = teamRepository.findById(teamId);
 //		teamService.updateTeam(team, teamUpdateDto);
 	}
 	
 	@RequestMapping(value="/add-team", method = RequestMethod.POST)
 	public void addPlayer(@RequestBody TeamUpdateDto teamUpdateDto){
-		log.info("add-team"+ teamUpdateDto);
+		log.info("add-team   "+ teamUpdateDto);
 //		Team team = new Team();
 //		teamService.updateTeam(team, teamUpdateDto);
 	}

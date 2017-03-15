@@ -15,14 +15,14 @@ public class TeamService {
 	PlayerRepository playerRepository;
 	public void updateTeam(Team team, TeamUpdateDto teamUpdateDto) {
 		
-		if(teamUpdateDto.getFaundationDate()!=null)
-			team.setFaundationDate(teamUpdateDto.getFaundationDate());
-		if(teamUpdateDto.getName()!=null)
-			team.setName(teamUpdateDto.getName());
-		if(teamUpdateDto.getCapitain()!=null)
-			team.setPlayer(playerRepository.findById(teamUpdateDto.getCapitain().intValue()));
-		if(teamUpdateDto.getLeagueId()!=null)
-		team.setLeagueId(teamUpdateDto.getLeagueId());
+//		if(teamUpdateDto.getFaundationDate()!=null)
+//			team.setFaundationDate(teamUpdateDto.getFaundationDate());
+//		if(teamUpdateDto.getName()!=null)
+//			team.setName(teamUpdateDto.getName());
+//		if(teamUpdateDto.getCapitain()!=null)
+//			team.setPlayer(playerRepository.findById(teamUpdateDto.getCapitain().intValue()));
+//		if(teamUpdateDto.getLeagueId()!=null)
+//		team.setLeagueId(teamUpdateDto.getLeagueId());
 		
 		teamRepository.save(team);
 

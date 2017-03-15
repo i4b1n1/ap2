@@ -10,18 +10,26 @@ app.controller('createController', function($scope, $http, $location,
 	}
 
 	$scope.submitTeam = function() {
-		if(idTeam.value!= undefined){
+
+		var dane = {
+				 'faundationDate' : "date" ,
+				 'leagueId' : $scope.ligaTeam ,
+				 'name' : $scope.nazwaTeam , 
+				 'capitainId' : $scope.captainTeam 
+				 }
+		
+		if($scope.idTeam!= ""){
 			$http.post(
-					url = 'http://localhost:2990/update-team/' + idTeam.value + "/"+ nazwaTeam.value + "/"+ ligaTeam.value + "/"+ captainTeam.value).
-					success(function(data) {
-						$scope.info = "Dodano team";
+					'http://localhost:2990/update-team/' + $scope.idTeam + '',dane
+					).success(function(data) {
+						$scope.info = "update team";
 			}).error(function(data) {
-				$scope.info = " Nie Dodano teamu";
+				$scope.info = " Nie update teamu";
 			});
 		}
 		else{
 			$http.post(
-					url = 'http://localhost:2990/add-team/' + nazwaTeam.value + "/"+ ligaTeam.value + "/"+ captainTeam.value).
+					'http://localhost:2990/add-team/',dane).
 					success(function(data) {
 						$scope.info = "Dodano team";
 			}).error(function(data) {
@@ -53,7 +61,7 @@ app.controller('createController', function($scope, $http, $location,
 		else{
 			$http.post(
 					 'http://localhost:2990/add-match/',dane 
-					 ).	success(function(data) {
+					 ).success(function(data) {
 						$scope.info = "Dodano add-match";
 			}).error(function(data) {
 				$scope.info = " Nie add-match";
@@ -63,16 +71,16 @@ app.controller('createController', function($scope, $http, $location,
 
 	}
 	    
-	$scope.submitEvent = function() {
-
-		$http.post(
-				url = 'http://localhost:2990/insert/wynik/' + idEvent.value + "/" + idTeamuEvent.value + "/"+ minutaEvent.value + "/"+ typEvent.value + "/"+ zawodnikEvent.value + "/"+ wartoscEvent.value + "/" + zawodnikEvent.value).
-				success(function(data) {
-					$scope.info = "Dodano Wynik";
-		}).error(function(data) {
-			$scope.info = " Nie Dodano wyniku";
-		});
-	}
+//	$scope.submitEvent = function() {
+//
+//		$http.post(
+//				url = 'http://localhost:2990/insert/wynik/' + idEvent.value + "/" + idTeamuEvent.value + "/"+ minutaEvent.value + "/"+ typEvent.value + "/"+ zawodnikEvent.value + "/"+ wartoscEvent.value + "/" + zawodnikEvent.value).
+//				success(function(data) {
+//					$scope.info = "Dodano Wynik";
+//		}).error(function(data) {
+//			$scope.info = " Nie Dodano wyniku";
+//		});
+//	}
 	
 	$scope.submitPilkarz= function() {
 		
@@ -88,9 +96,9 @@ app.controller('createController', function($scope, $http, $location,
 			$http.post(
 					 'http://localhost:2990/update-player/' + $scope.idPilkarz +'',	dane
 					).success(function(data) {
-						$scope.info = "Dodano Pilkarz";
+						$scope.info = "update Pilkarz";
 					}).error(function(data) {
-						$scope.info = " Nie Dodano Pilkarz";
+						$scope.info = " Nie update Pilkarz";
 					});			
 			}
 		else{

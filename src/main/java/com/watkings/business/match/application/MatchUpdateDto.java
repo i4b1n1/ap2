@@ -1,6 +1,5 @@
 package com.watkings.business.match.application;
 
-import java.util.Date;
 
 public class MatchUpdateDto {
 
@@ -28,16 +27,16 @@ public class MatchUpdateDto {
 		this.matchDate = matchDate;
 	}
 
-	public String getTeam1Id() {
-		return team1Id;
+	public Long getTeam1Id() {
+		return Long.parseLong(team1Id);
 	}
 
 	public void setTeam1Id(String team1Id) {
 		this.team1Id = team1Id;
 	}
 
-	public String getTeam2Id() {
-		return team2Id;
+	public Long getTeam2Id() {
+		return Long.parseLong(team2Id);
 	}
 
 	public void setTeam2Id(String team2Id) {

@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,17 +18,21 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-@Table(name="MATCH")
+@Table(name="matches")
 public class Match implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@GeneratedValue
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique=true, nullable=false)
 	private Long id;
 
+	@ManyToOne
+	@JoinColumn(name="COURT_ID")
+	private Court court;
+
 	@Column(name="IS_FINISHED")
-	private boolean isFinished;
+	private byte isFinished;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="MATCH_DATE")
@@ -36,34 +41,21 @@ public class Match implements Serializable {
 	@Column(name="ROUND_NUMBER")
 	private int roundNumber;
 
-	//bi-directional many-to-one association to MatchEvent
-	@OneToMany(mappedBy="match")
-	private List<MatchEvent> matchEvents;
+	@Column(name="LEAGUE_ID")
+	private Long league;
 
-	//bi-directional many-to-one association to Court
-	@ManyToOne
-	@JoinColumn(name="COURT_ID", nullable=false)
-	private Court court;
-
-	//bi-directional many-to-one association to League
-	@ManyToOne
-	@JoinColumn(name="LEAGUE_ID")
-	private League league;
-
-	//bi-directional many-to-one association to Referee
 	@ManyToOne
 	@JoinColumn(name="REFEREE_ID", nullable=false)
 	private Referee referee;
 
-	//bi-directional many-to-one association to Team
-	@ManyToOne
-	@JoinColumn(name="TEAM_HOME_ID", nullable=false)
-	private Team team1;
+	@Column(name="TEAM_HOME_ID", nullable=false)
+	private Long team1;
 
-	//bi-directional many-to-one association to Team
-	@ManyToOne
-	@JoinColumn(name="TEAM_AWAY_ID", nullable=false)
-	private Team team2;
+	@Column(name="TEAM_AWAY_ID", nullable=false)
+	private Long team2;
+
+	@OneToMany(mappedBy="match")
+	private List<MatchEvent> matchEvents;
 
 	public Match() {
 	}
@@ -76,11 +68,19 @@ public class Match implements Serializable {
 		this.id = id;
 	}
 
-	public boolean getIsFinished() {
+	public Court getCourtId() {
+		return this.court;
+	}
+
+	public void setCourtId(Court courtId) {
+		this.court = courtId;
+	}
+
+	public byte getIsFinished() {
 		return this.isFinished;
 	}
 
-	public void setIsFinished(boolean isFinished) {
+	public void setIsFinished(byte isFinished) {
 		this.isFinished = isFinished;
 	}
 
@@ -98,6 +98,38 @@ public class Match implements Serializable {
 
 	public void setRoundNumber(int roundNumber) {
 		this.roundNumber = roundNumber;
+	}
+
+	public Long getLeague() {
+		return this.league;
+	}
+
+	public void setLeague(Long league) {
+		this.league = league;
+	}
+
+	public Referee getReferee() {
+		return this.referee;
+	}
+
+	public void setReferee(Referee referee) {
+		this.referee = referee;
+	}
+
+	public Long getTeam1() {
+		return this.team1;
+	}
+
+	public void setTeam1(Long team1) {
+		this.team1 = team1;
+	}
+
+	public Long getTeam2() {
+		return this.team2;
+	}
+
+	public void setTeam2(Long team2) {
+		this.team2 = team2;
 	}
 
 	public List<MatchEvent> getMatchEvents() {
@@ -120,45 +152,5 @@ public class Match implements Serializable {
 		matchEvent.setMatch(null);
 
 		return matchEvent;
-	}
-
-	public Court getCourt() {
-		return this.court;
-	}
-
-	public void setCourt(Court court) {
-		this.court = court;
-	}
-
-	public League getLeague() {
-		return this.league;
-	}
-
-	public void setLeague(League league) {
-		this.league = league;
-	}
-
-	public Referee getReferee() {
-		return this.referee;
-	}
-
-	public void setReferee(Referee referee) {
-		this.referee = referee;
-	}
-
-	public Team getTeam1() {
-		return this.team1;
-	}
-
-	public void setTeam1(Team team1) {
-		this.team1 = team1;
-	}
-
-	public Team getTeam2() {
-		return this.team2;
-	}
-
-	public void setTeam2(Team team2) {
-		this.team2 = team2;
 	}
 }

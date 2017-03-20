@@ -45,16 +45,16 @@ public class PlayerController {
 	public void updatePlayer(@PathVariable int playerId,@RequestBody PlayerUpdateDto playerUpdateDto){
 		//String test = playerUpdateDto.getName() +" " + playerUpdateDto.getPosition() + " " + playerUpdateDto.getTeamId().toString() + " " + playerUpdateDto.getNationality();
 		log.info("/update-player/{}");
-//		Player player = playerRepository.findById(playerId);
-//		playerService.updatePlayer(player, playerUpdateDto);
+		Player player = playerRepository.findById(playerId);
+		playerService.updatePlayer(player, playerUpdateDto);
 	}
 	//JEST
 	@RequestMapping(value="/add-player", method = RequestMethod.POST)
 	public void addPlayer(@RequestBody PlayerUpdateDto playerUpdateDto){
 		//String test = playerUpdateDto.getName() +" " + playerUpdateDto.getPosition() + " " + playerUpdateDto.getTeamId().toString() + " " + playerUpdateDto.getNationality();
 		log.info("/add-player  {}" );
-//		Player player = new Player();
-//		playerService.updatePlayer(player, playerUpdateDto);
+		Player player = new Player();
+		playerService.updatePlayer(player, playerUpdateDto);
 	}
 	
 	

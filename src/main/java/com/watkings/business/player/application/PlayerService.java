@@ -15,7 +15,9 @@ public class PlayerService {
 
 	public void updatePlayer(Player player, PlayerUpdateDto playerUpdateDto) {
 		
-		if(playerUpdateDto.getName()!=null)
+//		Long testTeamId = new Long(playerUpdateDto.getTeamId());
+		
+		if(playerUpdateDto.getName()!=null && !playerUpdateDto.getName().contains("undefined"))
 			player.setName(playerUpdateDto.getName());
 		if(playerUpdateDto.getNationality()!=null)
 			player.setNationality(playerUpdateDto.getNationality());

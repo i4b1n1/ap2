@@ -10,13 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dto.FootballerA;
 import com.watkings.business.match.application.MatchService;
 import com.watkings.business.match.application.MatchUpdateDto;
 import com.watkings.domain.Match;
 import com.watkings.domain.MatchRepository;
-
-import java.util.ArrayList;
 
 @RestController
 public class MatchController {
@@ -32,7 +29,7 @@ public class MatchController {
 	@RequestMapping(value="/update-match/{matchId}", method = RequestMethod.POST)
 	public void updateMatch(@PathVariable int matchId,@RequestBody MatchUpdateDto matchUpdateDto){
 		log.info("/update-match/{matchId}");
-//		Match match = matchRepository.findById(matchId);
+		Match match = matchRepository.findById(new Long(matchId));
 //		matchService.updateMatch(match, matchUpdateDto);
 	}
 	//JEST
@@ -45,9 +42,9 @@ public class MatchController {
 	// tu sie cos psuje , ale nie moge dosc na szybko co to jest  
 	//ogolnbie chce to wykorzytsac do listy meczy z kolejki -> beda wyswietlay sie druzyny i informacje
 	@RequestMapping(value="/match-info/{matchId}", method = RequestMethod.GET)
-	public Match getMatchInfo(@PathVariable Long matchId){
+	public Match getMatchInfo(@PathVariable int matchId){
 		log.info("/match-info/{matchId}");
-		Match result = matchRepository.findById(matchId);
+		Match result = matchRepository.findById(new Long(matchId));
 		return result;
 	}
 

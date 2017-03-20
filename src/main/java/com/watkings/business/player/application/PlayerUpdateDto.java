@@ -1,6 +1,5 @@
 package com.watkings.business.player.application;
 
-import java.util.Date;
 
 public class PlayerUpdateDto {
 
@@ -38,11 +37,11 @@ public class PlayerUpdateDto {
 	}
 
 	public Long getTeamId() {
-		return Long.getLong(teamId);
+		return Long.parseLong(teamId);
 	}
 
-	public void setTeam(Long teamId) {
-		this.teamId = teamId.toString();
+	public void setTeam(String teamId) {
+		this.teamId = teamId;
 	}
 	
 }

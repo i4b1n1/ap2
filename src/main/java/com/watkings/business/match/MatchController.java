@@ -3,7 +3,6 @@ package com.watkings.business.match;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,19 +24,18 @@ public class MatchController {
 	
 	Log log = LogFactory.getLog(MatchController.class);
 	//JEST
-	@Transactional
 	@RequestMapping(value="/update-match/{matchId}", method = RequestMethod.POST)
 	public void updateMatch(@PathVariable int matchId,@RequestBody MatchUpdateDto matchUpdateDto){
 		log.info("/update-match/{matchId}");
 		Match match = matchRepository.findById(new Long(matchId));
-//		matchService.updateMatch(match, matchUpdateDto);
+		matchService.updateMatch(match, matchUpdateDto);
 	}
 	//JEST
 	@RequestMapping(value="/add-match", method = RequestMethod.POST)
 	public void addPlayer(@RequestBody MatchUpdateDto matchUpdateDto){
 		log.info("/add-match");
-//		Match match = new Match();
-//		matchService.updateMatch(match, matchUpdateDto);
+		Match match = new Match();
+		matchService.updateMatch(match, matchUpdateDto);
 	}
 	// tu sie cos psuje , ale nie moge dosc na szybko co to jest  
 	//ogolnbie chce to wykorzytsac do listy meczy z kolejki -> beda wyswietlay sie druzyny i informacje

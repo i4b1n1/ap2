@@ -18,9 +18,9 @@ CREATE  OR REPLACE VIEW `results` AS
         ta.NAME as TEAM_AWAY_NAME
     FROM
         (`match_event` `me`
-        LEFT JOIN `match` `m` ON ((`me`.`MATCH_ID` = `m`.`ID`)))
+        LEFT JOIN `matches` `m` ON ((`me`.`MATCH_ID` = `m`.`ID`)))
         join team th on th.ID = TEAM_HOME_ID
         join team ta on ta.ID = TEAM_AWAY_ID
     WHERE
         (`me`.`EVENT_TYPE_ID` = 1)
-    GROUP BY `me`.`MATCH_ID`;
+    GROUP BY `me`.`MATCH_ID`;;

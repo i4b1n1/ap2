@@ -8,6 +8,7 @@ import com.watkings.domain.Match;
 import com.watkings.domain.MatchRepository;
 import com.watkings.domain.RefereeRepository;
 import com.watkings.domain.TeamRepository;
+import com.watkings.utils.ProjectDateFormat;
 
 @Component
 public class MatchService {
@@ -23,17 +24,20 @@ public class MatchService {
 	
 	@Autowired
 	TeamRepository teamRepository;
+	
+	@Autowired
+	ProjectDateFormat dateFormat;
 
 	public void updateMatch(Match match, MatchUpdateDto matchUpdateDto) { 
-//		match.setCourt(courtRepository.getRandomCourt());
-//		match.setIsFinished(false);
-//		if(matchUpdateDto.getMatchDate()!=null)
-//			match.setMatchDate(new Date());
-//		match.setReferee(refereeRepository.getRandomReferee());
-//		if(matchUpdateDto.getTeam1Id()!=null)
-//			match.setTeam1(teamRepository.findById(matchUpdateDto.getTeam1Id()));
-//		if(matchUpdateDto.getTeam2Id()!=null)
-//			match.setTeam2(teamRepository.findById(matchUpdateDto.getTeam2Id()));
+		match.setCourtId(courtRepository.getRandomCourt());
+		match.setIsFinished(false);
+		if(matchUpdateDto.getMatchDate()!=null)
+			match.setMatchDate(matchUpdateDto.getMatchDate(dateFormat.getSimpleDateFormat()));
+		match.setReferee(refereeRepository.getRandomReferee());
+		if(matchUpdateDto.getTeam1Id()!=null)
+			match.setTeam1(matchUpdateDto.getTeam1Id());
+		if(matchUpdateDto.getTeam2Id()!=null)
+			match.setTeam2(matchUpdateDto.getTeam2Id());
 		
 	}
 

@@ -27,12 +27,11 @@ public class Match implements Serializable {
 	@Column(unique=true, nullable=false)
 	private Long id;
 
-	@ManyToOne
-	@JoinColumn(name="COURT_ID")
-	private Court court;
+	@Column(name="COURT_ID")
+	private int court;
 
 	@Column(name="IS_FINISHED")
-	private byte isFinished;
+	private boolean isFinished;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="MATCH_DATE")
@@ -68,20 +67,20 @@ public class Match implements Serializable {
 		this.id = id;
 	}
 
-	public Court getCourtId() {
+	public int getCourtId() {
 		return this.court;
 	}
 
-	public void setCourtId(Court courtId) {
+	public void setCourtId(int courtId) {
 		this.court = courtId;
 	}
 
-	public byte getIsFinished() {
+	public boolean getIsFinished() {
 		return this.isFinished;
 	}
 
-	public void setIsFinished(byte isFinished) {
-		this.isFinished = isFinished;
+	public void setIsFinished(boolean b) {
+		this.isFinished = b;
 	}
 
 	public Date getMatchDate() {

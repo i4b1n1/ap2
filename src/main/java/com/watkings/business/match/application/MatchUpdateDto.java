@@ -1,5 +1,9 @@
 package com.watkings.business.match.application;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class MatchUpdateDto {
 
@@ -22,6 +26,17 @@ public class MatchUpdateDto {
 	public String getMatchDate() {
 		return matchDate;
 	}
+	
+	public Date getMatchDate(SimpleDateFormat dateFormat) {
+		try{
+		return dateFormat.parse(this.matchDate);
+		}
+		catch(ParseException e){
+			System.out.println(e);
+		}
+		return new Date();
+	}
+		
 
 	public void setMatchDate(String matchDate) {
 		this.matchDate = matchDate;

@@ -11,7 +11,7 @@ public interface RefereeRepository extends CrudRepository<Referee, Long> {
 
 	public List<Referee> findAll();
 
-	@Query(value="select * from Referee order by RAND() LIMIT 1", nativeQuery=true)
-	public Referee getRandomReferee();	
+	@Query(value="select ID from referee order by RAND() LIMIT 1", nativeQuery=true)
+	public int getRandomReferee();	
 
 }

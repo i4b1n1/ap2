@@ -39,6 +39,7 @@ public class MatchService {
 		if(matchUpdateDto.getTeam2Id()!=null)
 			match.setTeam2(matchUpdateDto.getTeam2Id());
 		
+		matchRepository.save(match);
 	}
 
 }

@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -43,9 +41,8 @@ public class Match implements Serializable {
 	@Column(name="LEAGUE_ID")
 	private Long league;
 
-	@ManyToOne
-	@JoinColumn(name="REFEREE_ID", nullable=false)
-	private Referee referee;
+	@Column(name="REFEREE_ID", nullable=false)
+	private int referee;
 
 	@Column(name="TEAM_HOME_ID", nullable=false)
 	private Long team1;
@@ -107,11 +104,11 @@ public class Match implements Serializable {
 		this.league = league;
 	}
 
-	public Referee getReferee() {
+	public int getReferee() {
 		return this.referee;
 	}
 
-	public void setReferee(Referee referee) {
+	public void setReferee(int referee) {
 		this.referee = referee;
 	}
 

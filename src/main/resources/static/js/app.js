@@ -15,9 +15,12 @@ app.config(function($routeProvider) {
 	}).when('/kontakt', {
 		templateUrl : '/views/kontakt.html',
 		controller : 'contactController'
-	}).when('/create', {
+	}).	when('/create', {
 		templateUrl : '/views/create.html',
 		controller : 'createController'
+	}).when('/glowna', {
+		templateUrl : '/views/glowna.html',
+		controller : 'glownaController'
 	}).otherwise({
 		redirectTo : 'liga1',
 		controller : 'ligaController'

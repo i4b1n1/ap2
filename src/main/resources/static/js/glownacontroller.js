@@ -1,7 +1,7 @@
 
 app.controller('glownaController',function($scope, $http, $location, appService) {
 
-	var newsNumber = 7;
+	var newsNumber = 100;
 	$http.get(
 			'http://localhost:2990//news/get/'+ newsNumber + '').success(
 			function(data) {

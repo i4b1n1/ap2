@@ -71,16 +71,21 @@ app.controller('createController', function($scope, $http, $location,
 
 	}
 	    
-//	$scope.submitEvent = function() {
-//
-//		$http.post(
-//				url = 'http://localhost:2990/insert/wynik/' + idEvent.value + "/" + idTeamuEvent.value + "/"+ minutaEvent.value + "/"+ typEvent.value + "/"+ zawodnikEvent.value + "/"+ wartoscEvent.value + "/" + zawodnikEvent.value).
-//				success(function(data) {
-//					$scope.info = "Dodano Wynik";
-//		}).error(function(data) {
-//			$scope.info = " Nie Dodano wyniku";
-//		});
-//	}
+	$scope.submitNews = function() {
+
+		var dane = {
+				'title' : $scope.titleNews ,
+				'body' : $scope.bodyNews 				
+				}
+		
+		$http.post(
+				url = 'http://localhost:2990/news/add/',dane).
+				success(function(data) {
+					$scope.info = "Dodano News";
+		}).error(function(data) {
+			$scope.info = " Nie News";
+		});
+	}
 	
 	$scope.submitPilkarz= function() {
 		

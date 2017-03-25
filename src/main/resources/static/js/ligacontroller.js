@@ -31,8 +31,7 @@ app.controller('ligaController',
 								+ appService.leagueId;
 					});
 
-			$http
-					.get(
+			$http.get(
 							'http://localhost:2990///table/'
 									+ appService.leagueId + '').success(
 							function(data) {
@@ -57,15 +56,6 @@ app.controller('ligaController',
 							$scope.info = " Error players/list/ " + teamId;
 						});
 
-				// $http.get(
-				// 'http://localhost:2990//players/list/'+ teamId + '').
-				// success(function(data) {
-				// $scope.info = "Pobrano players/list/ " + teamId;
-				// $scope.playerListHome = data;
-				// }).error(function(data) {
-				// $scope.info = " Error players/list/ " + teamId;
-				// });
-
 			}
 
 			$scope.getMatchDetails = function(awayTeamId, homeTeamId) {
@@ -78,7 +68,7 @@ app.controller('ligaController',
 				}).error(function(data) {
 					$scope.info = " Error players/list/ " + awayTeamId;
 				});
-				
+
 				$http.get(
 						'http://localhost:2990//players/list/' + homeTeamId
 								+ '').success(function(data) {
@@ -87,8 +77,7 @@ app.controller('ligaController',
 				}).error(function(data) {
 					$scope.info = " Error players/list/ " + homeTeamId;
 				});
-				
-				
+
 			}
 
 		});

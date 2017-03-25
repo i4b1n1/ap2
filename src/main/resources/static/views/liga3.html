@@ -5,10 +5,10 @@
 				<div class="container-fluid">
 			
 					<ul class="nav navbar-nav">
-						<li><a ng-click="liga('all')" href="#/glowna">Glowna</a></li>
-						<li><a ng-click="liga('l1')" href="#/liga1">Liga 1</a></li>
-						<li><a ng-click="liga('l2')" href="#/liga2">Liga 2</a></li>
-						<li class="active"><a ng-click="liga('l3')" href="#/liga3">Liga3</a></li>
+						<li><a href="#/glowna">Glowna</a></li>
+						<li><a ng-click="liga('1')" href="#/liga1">Liga 1</a></li>
+						<li><a ng-click="liga('2')" href="#/liga2">Liga 2</a></li>
+						<li class="active"><a ng-click="liga('3')" href="#/liga3">Liga3</a></li>
 						<li><a  ng-click="create()" id="createButton">Edycja</a></li> 
 					</ul>
 
@@ -31,193 +31,210 @@
 		<div class="col-lg-3 text-center"></div>
 	</div>
 
+
 	<div class="row">
-		<div class="  col-lg-1 text-center"></div>
 
-
-		<div class="scoreMatchs  container-fluid col-lg-4 text-center">
-			<h2>Score Match</h2>
+		<div class="bestPlayer  container-fluid col-lg-3 text-center">
+			<h2>Najlepsi Pilakrze</h2>
 			<table id="tScoreMatchs" class="table-bordered table-hover">
 				<thead>
 					<tr class="warning">
-						<th class="warning" data-field="id">#</th>
-						<th class="warning" data-field="team1">Team 1</th>
-						<th class="warning" data-field="team2">Team 2</th>
-						<th class="danger" data-field="date">Data</th>
-						<th class="warning" data-field="score">Wynik</th>
+						<th class="warning" data-field="playerId">#</th>
+						<th class="warning" data-field="bramki">Bramki</th>
+						<th class="warning" data-field="druzyna">Druzyna</th>
+						<th class="danger" data-field="leagueId">LeagueId</th>
+						<th class="warning" data-field="zawodnik">Zawodnik</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="danger" ng-repeat="data in scoreMatchs"
+					<tr class="danger" ng-repeat="data in scorersclassification"
 						data-toggle="modal" data-target="#myModal"
 						ng-click="showData(data)">
-						<td>{{ data.id }}</td>
-						<td>{{ data.team1.name }}</td>
-						<td>{{ data.team2.name }}</td>
-						<td>{{ data.date }}</td>
-						<td>{{ data.scoreT1 + ' : ' + data.scoreT2 }}</td>
+						<td>{{ data.playerId }}</td>
+						<td>{{ data.bramki }}</td>
+						<td>{{ data.druzyna }}</td>
+						<td>{{ data.leagueId }}</td>
+						<td>{{ data.zawodnik }}</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 
-		<div class="  col-lg-2 text-center"></div>
-		<div class="futureMatch container-fluid col-lg-4 text-center">
-			<h2>Future Match</h2>
-			<table id="tFutureMatch" class="table-bordered table-hover">
+
+		<div class="ostatniakolejka  container-fluid col-lg-3 text-center">
+			<h2>Ostatnia kolejka</h2>
+			<table id="tScoreMatchs" class="table-bordered table-hover">
 				<thead>
 					<tr class="warning">
-						<th class="danger" data-field="id">#</th>
-						<th class="danger" data-field="team1">Team 1</th>
-						<th class="danger" data-field="team2">Team 2</th>
-						<th class="danger" data-field="date">Data</th>
+						<th class="warning" data-field="matchId">#</th>
+						<th class="warning" data-field="teamAwayName">Team 1</th>
+						<th class="warning" data-field="goalsAway">W1</th>
+						<th class="danger" data-field="goalsHome">W2</th>
+						<th class="warning" data-field="teamHomeName">Team 2</th>
 					</tr>
-
 				</thead>
 				<tbody>
-					<tr class="danger" ng-repeat="data in futureMatchs"
-						data-toggle="modal" data-target="#myModal"
-						ng-click="showData(data)">
-						<td>{{ data.id }}</td>
-						<td>{{ data.team1.name }}</td>
-						<td>{{ data.team2.name }}</td>
-						<td>{{ data.date }}</td>
+					<tr class="danger" ng-repeat="data in lastmatchweek"
+						data-toggle="modal" data-target="#matchDetailsModal"
+						ng-click="getMatchDetails(data.teamAwayId,data.teamHomeId)">
+						<td>{{ data.matchId }}</td>
+						<td>{{ data.teamAwayName }}</td>
+						<td>{{ data.goalsAway }}</td>
+						<td>{{ data.goalsHome }}</td>
+						<td>{{ data.teamHomeName }}</td>
 					</tr>
-
 				</tbody>
 			</table>
 		</div>
 
-		<div class="  col-lg-1 text-center"></div>
-		<div class="row">
-			<div class="col-lg-12">
 
-				<!-- Modal -->
-				<div class="modal fade" id="myModal" role="dialog">
-					<div class="modal-dialog">
 
-						<!-- Modal content-->
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Modal Header</h4>
-							</div>
-							<div class="modal-body">
-								<div class="row">
-									<div
-										class="teamFootbaler1 container-fluid col-lg-6 text-center">
-										<h2>Name : {{nameTeam1}}</h2>
-										<h2>Position : {{teamPos1}}</h2>
-										<table id="teamFootbaler1" class="table-bordered table-hover">
-											<thead>
-												<tr class="warning">
-													<th class="danger" data-field="id">#</th>
-													<th class="danger" data-field="Name  ">Name</th>
-													<th class="danger" data-field="Surname   ">Surname</th>
-													<th class="danger" data-field="Position">Position</th>
-													<th class="danger" data-field="Penalties">Penalties</th>
-												</tr>
-
-											</thead>
-											<tbody>
-												<tr class="danger" ng-repeat="data in listFootballer1">
-													<td>{{ data.id }}</td>
-													<td>{{ data.name }}</td>
-													<td>{{ data.surname}}</td>
-													<td>{{ data.position }}</td>
-													<td>{{ data.penalties }}</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-									<div
-										class="teamFootbaler1 container-fluid col-lg-6 text-center">
-										<h2>Name : {{nameTeam2}}</h2>
-										<h2>Position : {{teamPos2}}</h2>
-										<table id="teamFootbaler2" class="table-bordered table-hover">
-											<thead>
-												<tr class="warning">
-													<th class="danger" data-field="id">#</th>
-													<th class="danger" data-field="Name  ">Name</th>
-													<th class="danger" data-field="Surname   ">Surname</th>
-													<th class="danger" data-field="Position">Position</th>
-													<th class="danger" data-field="Penalties">Penalties</th>
-												</tr>
-
-											</thead>
-											<tbody>
-												<tr class="danger" ng-repeat="data in listFootballer2">
-													<td>{{ data.id }}</td>
-													<td>{{ data.name }}</td>
-													<td>{{ data.surname}}</td>
-													<td>{{ data.position }}</td>
-													<td>{{ data.penalties }}</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-info btn-lg"
-									data-toggle="modal" data-target="#myModalEdycja"
-									ng-click="editData()">Edit Details</button>
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">Close</button>
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-<div class="modal fade" id="myModalEdycja" role="dialog">
-						<div class="modal-dialog">
-
-							<!-- Modal content-->
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Modal Header</h4>
-								</div>
-								<div class="modal-body">
-									<div class="row">
-
-										<div class="form-group">
-											<label> Team 1 Name </label> <input value="{{team1name}}" class="form-control"	id="team1name" />
-										</div>
-										<div class="form-group">
-											<label> Team 2 Score </label> <input value="{{team1score}}" class="form-control"	id="team1score" />
-										</div>
-										<div class="form-group">
-											<label> Team 2 Name </label> <input  value="{{team2name}}" class="form-control"	id="team2name" />
-										</div>
-										<div class="form-group">
-											<label>Team 2 Score </label> <input value="{{team2score}}" class="form-control"	id="" />
-										</div>
-										<div class="form-group">
-											<label> Date </label> <input value="{{date}}" class="form-control"	id="date" />
-										</div>
-										<div class="form-group">
-											<label> Liga </label> <input value="{{liga}}" class="form-control"	id="liga" />
-										</div>
-								
-									</div>
-								</div>
-
-								<div class="modal-footer">
-								<button type="button" class="btn btn-info btn-lg"
-									data-toggle="modal" data-target="#myModalEdycja"
-									ng-click="editData()">Edit Details</button>
-									<button type="button" class="btn btn-default"
-										data-dismiss="modal" ng-click="saveEditData()">Save Edit Data</button>
-								</div>
-							</div>
-
-						</div>
-					</div>
-			</div>
+		<div class="bestTeam  container-fluid col-lg-3 text-center">
+			<h2>Best Team</h2>
+			<table id="tScoreMatchs" class="table-bordered table-hover">
+				<thead>
+					<tr class="warning">
+						<th class="warning" data-field="teamId">#</th>
+						<th class="warning" data-field="goalsLost">Stracone</th>
+						<th class="warning" data-field="goalsScored">Zdobyte</th>
+						<th class="danger" data-field="points">Punkty</th>
+						<th class="warning" data-field="name">Nazwa</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="danger" ng-repeat="data in bestTeam" data-toggle="modal"
+						data-target="#teamDetails" ng-click="getTeamDetails(data.teamId)">
+						<td>{{ data.teamId }}</td>
+						<td>{{ data.goalsLost }}</td>
+						<td>{{ data.goalsScored }}</td>
+						<td>{{ data.points }}</td>
+						<td>{{ data.name }}</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 
+		<div class="row">
+			<div class="col-lg-12"></div>
+		</div>
+
+
+	</div>
+
+</div>
+
+
+
+
+
+<!-------------------------TEAM DETAILS---------------------------------- -->
+<div class="modal fade" id="teamDetails" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Team Details</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+
+					<table id="playerListinTeam"
+						class="table-bordered table-hover">
+						<thead>
+							<tr class="warning">
+								<th class="warning" data-field="id">#</th>
+								<th class="warning" data-field="dateOfBirth">Data ur</th>
+								<th class="warning" data-field="name">Zawodnik</th>
+								<th class="warning" data-field="nationality">Narodowosc</th>
+								<th class="warning" data-field="position">Pozycja</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="danger" ng-repeat="data in playerListTeam">
+								<td>{{ data.id }}</td>
+								<td>{{ data.dateOfBirth }}</td>
+								<td>{{ data.name }}</td>
+								<td>{{ data.nationality }}</td>
+								<td>{{ data.position }}</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+
+			<div class="modal-footer"></div>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+<!-------------------------MATCH DETAILS---------------------------------- -->
+<div class="modal fade" id="matchDetailsModal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Team Details</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-1"></div>
+					<table id="matchDetailsHome"
+						class="table-bordered table-hover col-lg-4">
+						<thead>
+							<tr class="warning">
+						<th class="warning" data-field="playerId">#</th>
+						<th class="warning" data-field="dateOfBirth">Data Ur</th>
+						<th class="warning" data-field="name">Zawodnik</th>
+						<th class="warning" data-field="nationality">Nacja</th>
+						<th class="warning" data-field="position">Pozycja</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="danger" ng-repeat="data in playerListAway">
+								<td>{{ data.playerId }}</td>
+								<td>{{ data.dateOfBirth }}</td>
+								<td>{{ data.name }}</td>
+								<td>{{ data.nationality }}</td>
+								<td>{{ data.position }}</td>
+							</tr>
+						</tbody>
+					</table>
+				<div class="col-lg-1"></div>
+				<table id="matchDetailsAway"
+						class="table-bordered table-hover col-lg-4">
+						<thead>
+							<th class="warning" data-field="playerId">#</th>
+						<th class="warning" data-field="dateOfBirth">Data Ur</th>
+						<th class="warning" data-field="name">Zawodnik</th>
+						<th class="warning" data-field="nationality">Nacja</th>
+						<th class="warning" data-field="position">Pozycja</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="danger" ng-repeat="data in playerListHome">
+							<td>{{ data.playerId }}</td>
+								<td>{{ data.dateOfBirth }}</td>
+								<td>{{ data.name }}</td>
+								<td>{{ data.nationality }}</td>
+								<td>{{ data.position }}</td>
+							</tr>
+						</tbody>
+					</table>
+				
+				<div class="col-lg-2"></div>
+				</div>
+			</div>
+
+			<div class="modal-footer"></div>
+		</div>
 
 	</div>
 

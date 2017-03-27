@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,7 +38,7 @@ public class Team implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to Player
-	@OneToMany(mappedBy="team")
+	@OneToMany(mappedBy="team", fetch=FetchType.LAZY)
 	private List<Player> players;
 
 	//bi-directional many-to-one association to Player

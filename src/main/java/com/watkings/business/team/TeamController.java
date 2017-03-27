@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.watkings.business.team.application.TeamBasicDto;
 import com.watkings.business.team.application.TeamService;
 import com.watkings.business.team.application.TeamUpdateDto;
 import com.watkings.domain.Player;
@@ -63,11 +64,10 @@ public class TeamController {
 		return result;
 	}
 	
-	@RequestMapping(value="/teams/list", method = RequestMethod.GET)
-	public List<Team> getAllTeams() {
+	@RequestMapping(value="/teams/list/{teamId}", method = RequestMethod.GET)
+	public List<TeamBasicDto> getAllTeams(@PathVariable int teamId) {
 		log.info("/teams/list");
-		List<Team> result = teamRepository.findAll();
-		return result;
+		return teamService.getTeamsByLeague(teamId);
 	}
 
 }

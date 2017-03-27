@@ -1,5 +1,8 @@
 package com.watkings.business.team.application;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +29,16 @@ public class TeamService {
 		
 		teamRepository.save(team);
 
+	}
+	public List<TeamBasicDto> getTeamsByLeague(int teamId) {
+		List<Team> teamsList = teamRepository.findByLeagueId(new Long(teamId));
+		List<TeamBasicDto> teamsDtoList  = new ArrayList<TeamBasicDto>();
+		
+		for(Team team: teamsList){
+			teamsDtoList.add(new TeamBasicDto(team.getId(), team.getName()));
+		}
+		
+		return teamsDtoList;
 	}
 
 	

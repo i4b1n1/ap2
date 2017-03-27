@@ -62,5 +62,12 @@ public class TeamController {
 		Team result = teamRepository.findById(teamId); 
 		return result;
 	}
+	
+	@RequestMapping(value="/teams/list", method = RequestMethod.GET)
+	public List<Team> getAllTeams() {
+		log.info("/teams/list");
+		List<Team> result = teamRepository.findAll();
+		return result;
+	}
 
 }

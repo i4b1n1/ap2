@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="MATCH_EVENT")
+@Table(name="match_event")
 public class MatchEvent implements Serializable {
 	private static final long serialVersionUID = 1L;
 

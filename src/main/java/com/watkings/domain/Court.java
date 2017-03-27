@@ -8,12 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import lombok.Getter;
-import lombok.Setter;
 @Entity
-@Setter
-@Getter
 @Table(name="COURT")
 public class Court implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -30,4 +25,40 @@ public class Court implements Serializable {
 
 	@OneToMany(mappedBy="court")
 	private List<Match> matches;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Match> getMatches() {
+		return matches;
+	}
+
+	public void setMatches(List<Match> matches) {
+		this.matches = matches;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }

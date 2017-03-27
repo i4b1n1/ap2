@@ -15,5 +15,7 @@ public interface ResultsRepository extends CrudRepository<Results, Long> {
 
 	@Query(value="select * from results r where r.MATCHWEEK_NUMBER = (select max(MATCHWEEK_NUMBER) from results)", nativeQuery= true)
 	public List<Results> getLastMatchweekResults();	
+	
+	public Results findByMatchId(int matchId);
 
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.watkings.business.match.application.MatchInfoDto;
 import com.watkings.business.match.application.MatchService;
 import com.watkings.business.match.application.MatchUpdateDto;
 import com.watkings.domain.Match;
@@ -37,13 +38,17 @@ public class MatchController {
 		Match match = new Match();
 		matchService.updateMatch(match, matchUpdateDto);
 	}
-	// tu sie cos psuje , ale nie moge dosc na szybko co to jest  
-	//ogolnbie chce to wykorzytsac do listy meczy z kolejki -> beda wyswietlay sie druzyny i informacje
+
+	//POPRAWIONE
 	@RequestMapping(value="/match-info/{matchId}", method = RequestMethod.GET)
-	public Match getMatchInfo(@PathVariable int matchId){
+	public MatchInfoDto getMatchInfo(@PathVariable int matchId){
 		log.info("/match-info/{matchId}");
-		Match result = matchRepository.findById(new Long(matchId));
-		return result;
+		Long id = new Long(matchId);
+		Match match = matchRepository.findById(id);
+		if(match!=null)
+			return matchService.getMatchInfo(match);
+		else
+			return new MatchInfoDto();
 	}
 
 

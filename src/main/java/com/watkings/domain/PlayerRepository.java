@@ -16,5 +16,8 @@ public interface PlayerRepository extends CrudRepository<Player, Long> {
 	public List<Player> getTemSquad(int teamId);
 
 	public Player findById(int playerId);
+
+	@Query(value="select NAME from player p where p.TEAM_ID in (?1)",nativeQuery=true)
+	public List<String> getNamesByIds(List<Long> scorersIdList);
 		
 }

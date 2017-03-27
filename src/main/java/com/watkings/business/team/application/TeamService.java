@@ -6,6 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.watkings.domain.MatchByTeam;
+import com.watkings.domain.MatchByTeamRepository;
+import com.watkings.domain.MatchRepository;
 import com.watkings.domain.PlayerRepository;
 import com.watkings.domain.Team;
 import com.watkings.domain.TeamRepository;
@@ -16,6 +19,11 @@ public class TeamService {
 	TeamRepository teamRepository;
 	@Autowired
 	PlayerRepository playerRepository;
+	@Autowired
+	MatchRepository matchRepository;
+	@Autowired
+	MatchByTeamRepository matchByTeamRepository;
+	
 	public void updateTeam(Team team, TeamUpdateDto teamUpdateDto) {
 		
 //		if(teamUpdateDto.getFaundationDate()!=null)
@@ -39,6 +47,22 @@ public class TeamService {
 		}
 		
 		return teamsDtoList;
+	}
+	
+	public List<MatchByTeamDto> getTeamsMatchesList(int teamId) {
+		List<MatchByTeamDto> matchesDtoList = new ArrayList<MatchByTeamDto>();
+		List<MatchByTeam> matchesList = matchByTeamRepository.findByTeamId(new Long(teamId));
+		
+		if(matchesList.isEmpty())
+			return matchesDtoList;
+		
+		for(MatchByTeam match : matchesList){
+			matchesDtoList.add(new MatchByTeamDto(match.getId().toString(),
+												 match.getMatchDate().toString(), 
+												 match.getRival(),
+												 Integer.toString(match.getRoundNumber())));										
+		}
+		return matchesDtoList;
 	}
 
 	

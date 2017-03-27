@@ -38,7 +38,7 @@ public class LeagueController {
 	}
 	
 	//jest
-	@RequestMapping(value="results/last-matchweek/{leagueId}")
+	@RequestMapping(value="/results/last-matchweek/{leagueId}")
 	//wyniki ostatniej kolejki
 	//jak to wykorzystac
 	//dlaczego zwraca encje

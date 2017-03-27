@@ -64,10 +64,10 @@ public class TeamController {
 		return result;
 	}
 	
-	@RequestMapping(value="/teams/list/{teamId}", method = RequestMethod.GET)
-	public List<TeamBasicDto> getAllTeams(@PathVariable int teamId) {
+	@RequestMapping(value="/teams/list/{leagueId}", method = RequestMethod.GET)
+	public List<TeamBasicDto> getAllTeams(@PathVariable int leagueId) {
 		log.info("/teams/list");
-		return teamService.getTeamsByLeague(teamId);
+		return teamService.getTeamsByLeague(leagueId);
 	}
 
 }

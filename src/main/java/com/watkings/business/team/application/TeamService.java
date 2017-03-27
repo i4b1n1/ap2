@@ -30,8 +30,8 @@ public class TeamService {
 		teamRepository.save(team);
 
 	}
-	public List<TeamBasicDto> getTeamsByLeague(int teamId) {
-		List<Team> teamsList = teamRepository.findByLeagueId(new Long(teamId));
+	public List<TeamBasicDto> getTeamsByLeague(int leagueId) {
+		List<Team> teamsList = teamRepository.findByLeagueId(new Long(leagueId));
 		List<TeamBasicDto> teamsDtoList  = new ArrayList<TeamBasicDto>();
 		
 		for(Team team: teamsList){

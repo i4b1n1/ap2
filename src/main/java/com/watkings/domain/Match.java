@@ -50,8 +50,8 @@ public class Match implements Serializable {
 	@Column(name="TEAM_AWAY_ID", nullable=false)
 	private Long team2;
 
-	@OneToMany(mappedBy="match")
-	private List<MatchEvent> matchEvents;
+//	@OneToMany(mappedBy="match")
+//	private List<MatchEvent> matchEvents;
 
 	public Match() {
 	}
@@ -128,11 +128,11 @@ public class Match implements Serializable {
 		this.team2 = team2;
 	}
 
-	public List<MatchEvent> getMatchEvents() {
-		return this.matchEvents;
-	}
-
-	public void setMatchEvents(List<MatchEvent> matchEvents) {
-		this.matchEvents = matchEvents;
-	}
+//	public List<MatchEvent> getMatchEvents() {
+//		return this.matchEvents;
+//	}
+//
+//	public void setMatchEvents(List<MatchEvent> matchEvents) {
+//		this.matchEvents = matchEvents;
+//	}
 }

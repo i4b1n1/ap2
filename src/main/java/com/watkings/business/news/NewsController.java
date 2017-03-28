@@ -24,13 +24,13 @@ public class NewsController {
 	NewsService newsService;
 	
 	Log log = LogFactory.getLog(NewsController.class);
-	
+	//jest
 	@RequestMapping(value="/add")
 	public void addNews(@RequestBody NewsAddDto newsAddDto){
 		log.info(" news/add  --------" + newsAddDto.getTitle() + newsAddDto.getBody() );
 		newsService.addNews(newsAddDto);
 	}
-	
+	//jest
 	@RequestMapping(value="/get/{number}")
 	public List<News> getNewsList(@PathVariable int number){
 		return newsService.getNewsList(number);

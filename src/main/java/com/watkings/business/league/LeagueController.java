@@ -39,9 +39,6 @@ public class LeagueController {
 	
 	//jest
 	@RequestMapping(value="results/last-matchweek/{leagueId}")
-	//wyniki ostatniej kolejki
-	//jak to wykorzystac
-	//dlaczego zwraca encje
 	public List<Results> lastMatchweekResults(@PathVariable int leagueId){
 		log.info("/results/last-matchweek  " + leagueId);
 		return resultsRepo.getLastMatchweekResults();

@@ -117,5 +117,82 @@ app.controller('createController', function($scope, $http, $location,
 		}
 		
 	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//lISTY ROZWIJANE////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	   $scope.listLeague = {
+			    availableOptions: [
+			      {id: '1', name: 'Liga 1'},
+			      {id: '2', name: 'Liga 2'},
+			      {id: '3', name: 'Liga 3'}
+			    ]
+			   };
+	   
+	   
+	   $scope.updateSelectTeam = function(option){
+		   $http.get(
+					'http://localhost:2990//teams/list/'+ option.id + '').success(
+					function(data) {
+						$scope.info = "Pobrano scorers-classification/ "
+								+ $scope.selectedLieagueId;
+						$scope.selectedlistTeam = data;
+					}).error(
+					function(data) {
+						$scope.info = " Error scorers-classification/ "
+								+ appService.leagueId;
+					});
+
+	   }
+	   
+	   $scope.updateTeam = function(data){
+		   $http.get(
+					'http://localhost:2990//team-info/'+ data.id + '').success(
+					function(data) {
+						$scope.idTeam = data.id;
+						$scope.nazwaTeam =data.name;
+						$scope.ligaTeam = data.leagueId;
+						$scope.captainTeam = data.player;
+						
+						$scope.info = " http://localhost:2990//team-info/ ";
+					}).error(
+					function(data) {
+						$scope.info = " http://localhost:2990//team-info/ ";
+					});
+
+	   }
+	      
+	   
+	   $scope.updateSelectMatch = function(option){
+		   $http.get(
+					'http://localhost:2990//teams/list/'+ option.id + '').success(
+					function(data) {
+						$scope.info = "Pobrano scorers-classification/ "
+								+ $scope.selectedLieagueId;
+						$scope.selectedlistTeam = data;
+					}).error(
+					function(data) {
+						$scope.info = " Error scorers-classification/ "
+								+ appService.leagueId;
+					});
+
+	   }
+	   
+	   $scope.updateMatch = function(data){
+		   $http.get(
+					'http://localhost:2990//teams/list/'+ option.id + '').success(
+					function(data) {
+						$scope.info = "Pobrano scorers-classification/ "
+								+ $scope.selectedLieagueId;
+						$scope.selectedlistTeam = data;
+					}).error(
+					function(data) {
+						$scope.info = " Error scorers-classification/ "
+								+ appService.leagueId;
+					});
+
+	   }
+	   
 
 });

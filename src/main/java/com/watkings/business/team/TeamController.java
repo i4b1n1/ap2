@@ -71,7 +71,7 @@ public class TeamController {
 		return teamService.getTeamsByLeague(leagueId);
 	}
 	
-	@RequestMapping(value="teams/matches/{teamId}")
+	@RequestMapping(value="teams/matches/{teamId}", method = RequestMethod.GET)
 	//lista meczów danej drużyny
 	public List<MatchByTeamDto> getTeamsMatches(@PathVariable int teamId){
 		return teamService.getTeamsMatchesList(teamId);

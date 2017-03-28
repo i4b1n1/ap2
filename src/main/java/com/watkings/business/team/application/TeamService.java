@@ -12,6 +12,7 @@ import com.watkings.domain.MatchRepository;
 import com.watkings.domain.PlayerRepository;
 import com.watkings.domain.Team;
 import com.watkings.domain.TeamRepository;
+import com.watkings.utils.ProjectDateFormat;
 
 @Component
 public class TeamService {
@@ -23,17 +24,19 @@ public class TeamService {
 	MatchRepository matchRepository;
 	@Autowired
 	MatchByTeamRepository matchByTeamRepository;
+	@Autowired
+	ProjectDateFormat dateFormat;
 	
 	public void updateTeam(Team team, TeamUpdateDto teamUpdateDto) {
 		
-//		if(teamUpdateDto.getFaundationDate()!=null)
-//			team.setFaundationDate(teamUpdateDto.getFaundationDate());
-//		if(teamUpdateDto.getName()!=null)
-//			team.setName(teamUpdateDto.getName());
-//		if(teamUpdateDto.getCapitain()!=null)
-//			team.setPlayer(playerRepository.findById(teamUpdateDto.getCapitain().intValue()));
-//		if(teamUpdateDto.getLeagueId()!=null)
-//		team.setLeagueId(teamUpdateDto.getLeagueId());
+		if(teamUpdateDto.getFaundationDate()!=null)
+			team.setFaundationDate(teamUpdateDto.getFaundationDate(dateFormat.getSimpleDateFormat()));
+		if(teamUpdateDto.getName()!=null)
+			team.setName(teamUpdateDto.getName());
+		if(teamUpdateDto.getCapitainId()!=null)
+			team.setPlayer(teamUpdateDto.getCapitainId());
+		if(teamUpdateDto.getLeagueId()!=null)
+		team.setLeagueId(teamUpdateDto.getLeagueId());
 		
 		teamRepository.save(team);
 

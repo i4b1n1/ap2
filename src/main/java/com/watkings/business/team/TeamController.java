@@ -45,17 +45,17 @@ public class TeamController {
 	//jest
 	@Transactional
 	@RequestMapping(value="/update-team/{teamId}", method = RequestMethod.POST)
-	public void updatePlayer(@PathVariable Long teamId,@RequestBody TeamUpdateDto teamUpdateDto){
+	public void updatePlayer(@PathVariable int teamId,@RequestBody TeamUpdateDto teamUpdateDto){
 		log.info("update-team  "+ teamUpdateDto);
-//		Team team = teamRepository.findById(teamId);
-//		teamService.updateTeam(team, teamUpdateDto);
+		Team team = teamRepository.findById(new Long(teamId));
+		teamService.updateTeam(team, teamUpdateDto);
 	}
 	//jest
 	@RequestMapping(value="/add-team", method = RequestMethod.POST)
 	public void addPlayer(@RequestBody TeamUpdateDto teamUpdateDto){
 		log.info("add-team   "+ teamUpdateDto);
-//		Team team = new Team();
-//		teamService.updateTeam(team, teamUpdateDto);
+		Team team = new Team();
+		teamService.updateTeam(team, teamUpdateDto);
 	}
 	
 	@RequestMapping(value="/team-info/{teamId}", method = RequestMethod.GET)

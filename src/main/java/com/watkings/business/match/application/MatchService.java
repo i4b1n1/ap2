@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import com.watkings.domain.Court;
 import com.watkings.domain.CourtRepository;
 import com.watkings.domain.Match;
+import com.watkings.domain.MatchEvent;
 import com.watkings.domain.MatchEventRepository;
 import com.watkings.domain.MatchRepository;
 import com.watkings.domain.PlayerRepository;
@@ -21,26 +22,19 @@ import com.watkings.utils.ProjectDateFormat;
 public class MatchService {
 	
 	@Autowired
-	MatchRepository matchRepository;
-	
+	MatchRepository matchRepository;	
 	@Autowired
-	CourtRepository courtRepository;
-	
+	CourtRepository courtRepository;	
 	@Autowired
-	RefereeRepository refereeRepository;
-	
+	RefereeRepository refereeRepository;	
 	@Autowired
-	TeamRepository teamRepository;
-	
+	TeamRepository teamRepository;	
 	@Autowired
-	ProjectDateFormat dateFormat;
-	
+	ProjectDateFormat dateFormat;	
 	@Autowired 
-	ResultsRepository resultsRepository;
-	
+	ResultsRepository resultsRepository;	
 	@Autowired
 	MatchEventRepository matchEventRepository;
-	
 	@Autowired
 	PlayerRepository playerRepository;
 
@@ -95,5 +89,18 @@ public class MatchService {
 		List<Long> scorersIdList = matchEventRepository.findMatchScorers(match.getId().intValue());
 		List<String> scorersNamesList = playerRepository.getNamesByIds(scorersIdList);
 		return scorersNamesList;
+	}
+
+	public void addResult(int matchId, EventDto eventDto) {
+		MatchEvent matchEvent = new MatchEvent();
+		
+		matchEvent.setMatchId(matchId);
+		matchEvent.setEventTypeId(Integer.parseInt(eventDto.getEventTypeId()));
+		matchEvent.setPlayerId(Integer.parseInt(eventDto.getPlayerId()));
+		matchEvent.setTeamId(Integer.parseInt(eventDto.getTeamId()));
+		matchEvent.setEventMinute(Integer.parseInt(eventDto.getEventMinute()));
+		
+		matchEventRepository.save(matchEvent);
+		
 	}
 }

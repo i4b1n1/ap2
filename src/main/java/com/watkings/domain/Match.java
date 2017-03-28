@@ -135,18 +135,4 @@ public class Match implements Serializable {
 	public void setMatchEvents(List<MatchEvent> matchEvents) {
 		this.matchEvents = matchEvents;
 	}
-
-	public MatchEvent addMatchEvent(MatchEvent matchEvent) {
-		getMatchEvents().add(matchEvent);
-		matchEvent.setMatch(this);
-
-		return matchEvent;
-	}
-
-	public MatchEvent removeMatchEvent(MatchEvent matchEvent) {
-		getMatchEvents().remove(matchEvent);
-		matchEvent.setMatch(null);
-
-		return matchEvent;
-	}
 }

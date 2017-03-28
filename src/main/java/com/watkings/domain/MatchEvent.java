@@ -5,8 +5,6 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -31,12 +29,19 @@ public class MatchEvent implements Serializable {
 	@Column(name="TEAM_ID")
 	private int teamId;
 
-	//bi-directional many-to-one association to Match
-	@ManyToOne
-	@JoinColumn(name="MATCH_ID", nullable=false)
-	private Match match;
+	@Column(name="MATCH_ID", nullable=false)
+	private int matchId;
+
 
 	public MatchEvent() {
+	}
+	
+	public int getMatchId() {
+		return matchId;
+	}
+
+	public void setMatchId(int matchId) {
+		this.matchId = matchId;
 	}
 
 	public int getId() {
@@ -77,14 +82,6 @@ public class MatchEvent implements Serializable {
 
 	public void setTeamId(int teamId) {
 		this.teamId = teamId;
-	}
-
-	public Match getMatch() {
-		return this.match;
-	}
-
-	public void setMatch(Match match) {
-		this.match = match;
 	}
 	
 

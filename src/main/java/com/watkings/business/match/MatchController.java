@@ -55,6 +55,7 @@ public class MatchController {
 	@RequestMapping(value="/add-result/{matchId}", method = RequestMethod.GET)
 	public void addMatchResult(@PathVariable int matchId, @RequestBody EventDto eventDto){
 		log.info("/add-result/{matchId}");
+		matchService.addResult(matchId, eventDto);
 	}
 
 }

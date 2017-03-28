@@ -10,8 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -41,10 +39,8 @@ public class Team implements Serializable {
 	@OneToMany(mappedBy="team", fetch=FetchType.LAZY)
 	private List<Player> players;
 
-	//bi-directional many-to-one association to Player
-	@ManyToOne
-	@JoinColumn(name="CAPITAIN_ID")
-	private Player player;
+	@Column(name="CAPITAIN_ID")
+	private Long capitainId;
 
 	public Team() {
 	}
@@ -103,12 +99,12 @@ public class Team implements Serializable {
 //		return player;
 //	}
 
-	public Player getPlayer() {
-		return this.player;
+	public Long getPlayer() {
+		return this.capitainId;
 	}
 
-	public void setPlayer(Player player) {
-		this.player = player;
+	public void setPlayer(Long capitainId) {
+		this.capitainId = capitainId;
 	}
 
 }

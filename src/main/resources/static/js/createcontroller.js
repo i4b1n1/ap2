@@ -170,7 +170,7 @@ app.controller('createController', function($scope, $http, $location,
 					function(data) {
 						$scope.info = "Pobrano scorers-classification/ "
 								+ $scope.selectedLieagueId;
-						$scope.selectedlistTeam = data;
+						$scope.selectedlistMatch = data;
 					}).error(
 					function(data) {
 						$scope.info = " Error scorers-classification/ "
@@ -194,5 +194,43 @@ app.controller('createController', function($scope, $http, $location,
 
 	   }
 	   
+	   
+	   
+	   $scope.updateSelectTeamofPlayer = function(option){
+		   $http.get(
+					'http://localhost:2990//teams/list/'+ option.id + '').success(
+					function(data) {
+						$scope.selectedlistTeamofPlayer = data;
+					}).error(
+					function(data) {
+						$scope.info = " Error scorers-classification/ "
+								+ appService.leagueId;
+					});   
+
+	   }
+	   $scope.updateTeamofPlayer = function(data){
+		   
+		   $http.get(
+					'http://localhost:2990//players/list/'+ data.id + '').success(
+					function(data) {
+						$scope.selectedlistPlayer = data;
+					}).error(
+					function(data) {
+						$scope.info = " http://localhost:2990//players/list/"
+					});   
+		   
+	   }
+	   $scope.updatePlayer = function(data){
+		   $scope.idPilkarz = data.id;
+		   var afterSplitName = data.name.split(" ");
+		   $scope.imiePilkarz = afterSplitName[0];
+		   $scope.nazwiskoPilkarz = afterSplitName[1];
+		   $scope.pozycjaPilkarz= data.position;
+		   $scope.teamPilkarz = data.team;
+		   $scope.narodowscPilkarz = data.nationality;
+	   }
+	   
+	  
+	  
 
 });

@@ -29,6 +29,29 @@
 
 		<div class="col-md-3">
 			<h2>Dodaj lub Edytuj Pi³karza</h2>
+			<form name="myForm">
+			<label for="repeatSelectLeague"> Wybierz Lige: </label> <select
+				name="repeatSelect" id="repeatSelectLeague" >
+				<option ng-repeat="option in listLeague.availableOptions"  ng-click="updateSelectTeamofPlayer(option)" 
+					value="{{option.id}}">{{option.name}}</option>
+			</select>
+		</form>
+			
+			<form name="myForm">
+				<label for="repeatSelectTeamofPlayer"> Team: </label> 
+				<select name="repeatSelect" id="repeatSelectTeamofPlayer" >
+					<option ng-repeat="data in selectedlistTeamofPlayer" ng-click="updateTeamofPlayer(data)"
+						value="{{data.id}}">{{data.name}}</option>
+				</select>
+			</form>
+			
+			<form name="myForm">
+				<label for="repeatSelectTeam"> Player: </label> 
+				<select name="repeatSelect" id="repeatSelectPlayer" >
+					<option ng-repeat="data in selectedlistPlayer" ng-click="updatePlayer(data)"
+						value="{{data.id}}">{{data.name}}</option>
+				</select>
+			</form>
 			<form role="form">
 				<div class="form-group">
 

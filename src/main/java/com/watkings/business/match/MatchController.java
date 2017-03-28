@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.watkings.business.match.application.EventDto;
 import com.watkings.business.match.application.MatchInfoDto;
 import com.watkings.business.match.application.MatchService;
 import com.watkings.business.match.application.MatchUpdateDto;
@@ -50,6 +51,10 @@ public class MatchController {
 		else
 			return new MatchInfoDto();
 	}
-
+	
+	@RequestMapping(value="/add-result/{matchId}", method = RequestMethod.GET)
+	public void addMatchResult(@PathVariable int matchId, @RequestBody EventDto eventDto){
+		log.info("/add-result/{matchId}");
+	}
 
 }

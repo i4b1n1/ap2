@@ -95,10 +95,14 @@ public class MatchService {
 		MatchEvent matchEvent = new MatchEvent();
 		
 		matchEvent.setMatchId(matchId);
-		matchEvent.setEventTypeId(Integer.parseInt(eventDto.getEventTypeId()));
-		matchEvent.setPlayerId(Integer.parseInt(eventDto.getPlayerId()));
-		matchEvent.setTeamId(Integer.parseInt(eventDto.getTeamId()));
-		matchEvent.setEventMinute(Integer.parseInt(eventDto.getEventMinute()));
+		if(eventDto.getEventTypeId()!=null)
+			matchEvent.setEventTypeId(Integer.parseInt(eventDto.getEventTypeId()));
+		if(eventDto.getPlayerId()!=null)
+			matchEvent.setPlayerId(Integer.parseInt(eventDto.getPlayerId()));
+		if(eventDto.getTeamId()!=null)
+			matchEvent.setTeamId(Integer.parseInt(eventDto.getTeamId()));
+		if(eventDto.getEventMinute()!=null)
+			matchEvent.setEventMinute(Integer.parseInt(eventDto.getEventMinute()));
 		
 		matchEventRepository.save(matchEvent);
 		

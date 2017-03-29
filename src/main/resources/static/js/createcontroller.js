@@ -231,6 +231,55 @@ app.controller('createController', function($scope, $http, $location,
 	   }
 	   
 	  
-	  
+	   
+	   
+	   $scope.updateSelectEvent = function(option){
+		   $http.get(
+					'http://localhost:2990//teams/list/'+ option.id + '').success(
+					function(data) {
+						$scope.selectedlistTeamofEvent = data;
+					}).error(
+					function(data) {
+						$scope.info = " Error scorers-classification/ "
+								+ appService.leagueId;
+					});   
 
+	   }
+	  $scope.updateTeamofEvent = function(data){
+		   $http.get(
+					'http://localhost:2990/teams/matches/'+ data.id + '').success(
+					function(data) {
+						$scope.selectedEvent = data;
+					}).error(
+					function(data) {
+						$scope.info = " Error scorers-classification/ "
+								+ appService.leagueId;
+					});  
+		  
+	  }
+	  
+	  $scope.updateEvent = function(data){
+		  $scope.updateEventMatchId = data.matchId;
+	  }
+
+	  
+		$scope.submitEvent= function() {
+		
+			var dane = {
+					 'playerId' : $scope.playerIdEvent , 
+					'teamId' : $scope.teamIdEvent ,
+					'eventTypeId' : $scope.eventTypeIdEvent , 
+					'eventMinute' : $scope.eventMinuteEvent 
+					 }
+									
+				$http.post(
+						 'http://localhost:2990/add-result/' + $scope.updateEventMatchId +'',dane
+						).success(function(data) {
+							$scope.info = "http://localhost:2990/add-result/";
+						}).error(function(data) {
+							$scope.info = " http://localhost:2990/add-result/";
+						});				
+			
+		}
+	  
 });

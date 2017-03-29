@@ -46,13 +46,18 @@ public class MatchController {
 		log.info("/match-info/{matchId}");
 		Long id = new Long(matchId);
 		Match match = matchRepository.findById(id);
-		if(match!=null)
-			return matchService.getMatchInfo(match);
-		else
-			return new MatchInfoDto();
+		MatchInfoDto matchInfoDto =new MatchInfoDto();
+		if(match!=null){
+			
+			matchInfoDto = matchService.getMatchInfo(match);
+			return matchInfoDto;
+		}
+		else{
+			return matchInfoDto;
+		}
 	}
 	
-	@RequestMapping(value="/add-result/{matchId}", method = RequestMethod.GET)
+	@RequestMapping(value="/add-result/{matchId}", method = RequestMethod.POST)
 	public void addMatchResult(@PathVariable int matchId, @RequestBody EventDto eventDto){
 		log.info("/add-result/{matchId}");
 		matchService.addResult(matchId, eventDto);

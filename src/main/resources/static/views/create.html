@@ -29,9 +29,9 @@
 
 		<div class="col-md-3">
 			<h2>Dodaj lub Edytuj Pi³karza</h2>
-			<form name="myForm">
+			<form name="myFormPlayer">
 			<label for="repeatSelectLeague"> Wybierz Lige: </label> <select
-				name="repeatSelect" id="repeatSelectLeague" >
+				name="repeatSelect" id="repeatSelectPlayer" >
 				<option ng-repeat="option in listLeague.availableOptions"  ng-click="updateSelectTeamofPlayer(option)" 
 					value="{{option.id}}">{{option.name}}</option>
 			</select>
@@ -203,5 +203,63 @@
 	</div>
 
 	<div class="row">{{info}}</div>
+	
+	<div class="row">
+	
+	<div class="col-md-3">
+			<h2>Dodaj lub Edytuj wydarzenie meczowe</h2>
+			<form name="myFormEvent">
+			<label for="repeatSelectEvent"> Wybierz Lige: </label> <select
+				name="repeatSelect" id="repeatSelectEvent" >
+				<option ng-repeat="option in listLeague.availableOptions"  ng-click="updateSelectEvent(option)" >{{option.name}}</option>
+			</select>
+		</form>
+			
+			<form name="myForm">
+				<label for="repeatSelectTeam"> Team: </label> 
+				<select name="repeatSelect" id="repeatSelectTeam" >
+					<option ng-repeat="data in selectedlistTeamofEvent" ng-click="updateTeamofEvent(data)"
+						value="{{data.id}}">{{data.name}}</option>
+				</select>
+			</form>
+			
+			<form name="myForm">
+				<label for="repeatSelectTeam"> Match: </label> 
+				<select name="repeatSelect" id="repeatSelectTeam" >
+					<option ng-repeat="data in selectedEvent" ng-click="updateEvent(data)" 
+						value="{{data.matchId}}">{{data.date}} + {{data.teamHome}}</option>
+				</select>
+			</form>
+			
+			
+			<form role="form">
+				<div class="form-group">
+
+					<label> Player id </label> <input class="form-control" ng-init="idTeam=''"
+						ng-model="playerIdEvent" />
+				</div>
+				<div class="form-group">
+
+					<label> Team id </label> <input class="form-control"
+						ng-model="teamIdEvent" />
+				</div>
+				<div class="form-group">
+
+					<label> Event type </label> <input class="form-control"
+						ng-model="eventTypeIdEvent" />
+				</div>
+
+				<div class="form-group">
+
+					<label> Event minute </label> <input class="form-control"
+						ng-model="eventMinuteEvent" />
+				</div>
+				<button type="submit" class="btn btn-default" id="submitEvent"
+					ng-click="submitEvent()">Submit</button>
+			</form>
+		</div>
+	</div>
+	
+	</div>
 
 </div>

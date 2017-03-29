@@ -93,16 +93,16 @@ public class MatchInfoDto {
 		this.matchDate = matchDate;
 	}
 
-	public Long getTeam1Id() {
-		return Long.parseLong(team1Name);
+	public String getTeam1Id() {
+		return team1Name;
 	}
 
 	public void setTeam1Id(String team1Id) {
 		this.team1Name = team1Id;
 	}
 
-	public Long getTeam2Id() {
-		return Long.parseLong(team2Name);
+	public String getTeam2Id() {
+		return team2Name;
 	}
 
 	public void setTeam2Id(String team2Id) {

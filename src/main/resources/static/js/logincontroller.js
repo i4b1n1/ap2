@@ -18,7 +18,7 @@ app.controller('loginController',
 					login : login
 				};
 				$http.get(
-						url = 'http://localhost:2990/logging/' + $scope.login
+						url = $location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/logging/' + $scope.login
 								+ "/" + $scope.key).success(function(data) {
 					if (data.status == "true") {
 						$location.path("/create");

@@ -6,7 +6,7 @@ app.controller('ligaController',
 			}
 
 			$http.get(
-					'http://localhost:2990//scorers-classification/ '
+					$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/scorers-classification/ '
 							+ appService.leagueId + '').success(
 					function(data) {
 						$scope.info = "Pobrano scorers-classification/ "
@@ -19,7 +19,7 @@ app.controller('ligaController',
 					});
 
 			$http.get(
-					'http://localhost:2990//results/last-matchweek/ '
+					$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/results/last-matchweek/ '
 							+ appService.leagueId + '').success(
 					function(data) {
 						$scope.info = "Pobrano results/last-matchweek/  "
@@ -32,7 +32,7 @@ app.controller('ligaController',
 					});
 
 			$http.get(
-							'http://localhost:2990///table/'
+					$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/table/'
 									+ appService.leagueId + '').success(
 							function(data) {
 								$scope.info = "Pobrano table//  "
@@ -48,7 +48,7 @@ app.controller('ligaController',
 
 				$http
 						.get(
-								'http://localhost:2990//players/list/ '
+								$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/players/list/ '
 										+ teamId + '').success(function(data) {
 							$scope.info = "players/list/ " + teamId;
 							$scope.playerListTeam = data;
@@ -61,7 +61,7 @@ app.controller('ligaController',
 			$scope.getMatchDetails = function(awayTeamId, homeTeamId) {
 
 				$http.get(
-						'http://localhost:2990//players/list/' + awayTeamId
+						$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/players/list/' + awayTeamId
 								+ '').success(function(data) {
 					$scope.info = "Pobrano players/list/ " + awayTeamId;
 					$scope.playerListAway = data;
@@ -70,7 +70,7 @@ app.controller('ligaController',
 				});
 
 				$http.get(
-						'http://localhost:2990//players/list/' + homeTeamId
+						$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/players/list/' + homeTeamId
 								+ '').success(function(data) {
 					$scope.info = "Pobrano players/list/ " + homeTeamId;
 					$scope.playerListHome = data;

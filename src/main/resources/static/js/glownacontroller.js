@@ -3,7 +3,7 @@ app.controller('glownaController',function($scope, $http, $location, appService)
 
 	var newsNumber = 100;
 	$http.get(
-			'http://localhost:2990//news/get/'+ newsNumber + '').success(
+			$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/news/get/'+ newsNumber + '').success(
 			function(data) {
 				$scope.info = "Pobrano news/ ";
 				$scope.news = data;

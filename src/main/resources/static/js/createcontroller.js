@@ -20,7 +20,7 @@ app.controller('createController', function($scope, $http, $location,
 		
 		if($scope.idTeam!= ""){
 			$http.post(
-					'http://localhost:2990/update-team/' + $scope.idTeam + '',dane
+					$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/update-team/' + $scope.idTeam + '',dane
 					).success(function(data) {
 						$scope.info = "update team";
 			}).error(function(data) {
@@ -29,7 +29,7 @@ app.controller('createController', function($scope, $http, $location,
 		}
 		else{
 			$http.post(
-					'http://localhost:2990/add-team/',dane).
+					$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/add-team/',dane).
 					success(function(data) {
 						$scope.info = "Dodano team";
 			}).error(function(data) {
@@ -51,7 +51,7 @@ app.controller('createController', function($scope, $http, $location,
 		if($scope.idMecz!= ""){
 		
 			$http.post(
-					'http://localhost:2990/update-match/' + $scope.idMecz + '',dane
+					$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/update-match/' + $scope.idMecz + '',dane
 					).success(function(data) {
 						$scope.info = "update-match";
 			}).error(function(data) {
@@ -60,7 +60,7 @@ app.controller('createController', function($scope, $http, $location,
 		}
 		else{
 			$http.post(
-					 'http://localhost:2990/add-match/',dane 
+					$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/add-match/',dane 
 					 ).success(function(data) {
 						$scope.info = "Dodano add-match";
 			}).error(function(data) {
@@ -79,7 +79,7 @@ app.controller('createController', function($scope, $http, $location,
 				}
 		
 		$http.post(
-				url = 'http://localhost:2990/news/add/',dane).
+				url = $location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + 'news/add/',dane).
 				success(function(data) {
 					$scope.info = "Dodano News";
 		}).error(function(data) {
@@ -99,7 +99,7 @@ app.controller('createController', function($scope, $http, $location,
 		if($scope.idPilkarz!= "" )
 			{					
 			$http.post(
-					 'http://localhost:2990/update-player/' + $scope.idPilkarz +'',	dane
+					$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/update-player/' + $scope.idPilkarz +'',	dane
 					).success(function(data) {
 						$scope.info = "update Pilkarz";
 					}).error(function(data) {
@@ -108,7 +108,7 @@ app.controller('createController', function($scope, $http, $location,
 			}
 		else{
 			$http.post(
-					'http://localhost:2990/add-player/',dane
+					$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/add-player/',dane
 					).success(function(data) {
 						$scope.info = "Dodano Pilkarz";
 			}).error(function(data) {
@@ -133,7 +133,7 @@ app.controller('createController', function($scope, $http, $location,
 	   
 	   $scope.updateSelectTeam = function(option){
 		   $http.get(
-					'http://localhost:2990//teams/list/'+ option.id + '').success(
+				   $location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/teams/list/'+ option.id + '').success(
 					function(data) {
 						$scope.info = "Pobrano scorers-classification/ "
 								+ $scope.selectedLieagueId;
@@ -148,7 +148,7 @@ app.controller('createController', function($scope, $http, $location,
 	   
 	   $scope.updateTeam = function(data){
 		   $http.get(
-					'http://localhost:2990//team-info/'+ data.id + '').success(
+				   $location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/team-info/'+ data.id + '').success(
 					function(data) {
 						$scope.idTeam = data.id;
 						$scope.nazwaTeam =data.name;
@@ -166,7 +166,7 @@ app.controller('createController', function($scope, $http, $location,
 	   
 	   $scope.updateSelectMatch = function(option){
 		   $http.get(
-					'http://localhost:2990//teams/list/'+ option.id + '').success(
+				   $location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/teams/list/'+ option.id + '').success(
 					function(data) {
 						$scope.info = "Pobrano scorers-classification/ "
 								+ $scope.selectedLieagueId;
@@ -181,7 +181,7 @@ app.controller('createController', function($scope, $http, $location,
 	   
 	   $scope.updateMatch = function(data){
 		   $http.get(
-					'http://localhost:2990//teams/list/'+ option.id + '').success(
+				   $location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/teams/list/'+ option.id + '').success(
 					function(data) {
 						$scope.info = "Pobrano scorers-classification/ "
 								+ $scope.selectedLieagueId;
@@ -198,7 +198,7 @@ app.controller('createController', function($scope, $http, $location,
 	   
 	   $scope.updateSelectTeamofPlayer = function(option){
 		   $http.get(
-					'http://localhost:2990//teams/list/'+ option.id + '').success(
+				   $location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + 'teams/list/'+ option.id + '').success(
 					function(data) {
 						$scope.selectedlistTeamofPlayer = data;
 					}).error(
@@ -211,7 +211,7 @@ app.controller('createController', function($scope, $http, $location,
 	   $scope.updateTeamofPlayer = function(data){
 		   
 		   $http.get(
-					'http://localhost:2990//players/list/'+ data.id + '').success(
+				   $location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + 'players/list/'+ data.id + '').success(
 					function(data) {
 						$scope.selectedlistPlayer = data;
 					}).error(
@@ -235,7 +235,8 @@ app.controller('createController', function($scope, $http, $location,
 	   
 	   $scope.updateSelectEvent = function(option){
 		   $http.get(
-					'http://localhost:2990//teams/list/'+ option.id + '').success(
+				   
+				   $location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + 'teams/list/'+ option.id + '').success(
 					function(data) {
 						$scope.selectedlistTeamofEvent = data;
 					}).error(
@@ -247,7 +248,7 @@ app.controller('createController', function($scope, $http, $location,
 	   }
 	  $scope.updateTeamofEvent = function(data){
 		   $http.get(
-					'http://localhost:2990/teams/matches/'+ data.id + '').success(
+				   $location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/teams/matches/'+ data.id + '').success(
 					function(data) {
 						$scope.selectedEvent = data;
 					}).error(
@@ -273,7 +274,7 @@ app.controller('createController', function($scope, $http, $location,
 					 }
 									
 				$http.post(
-						 'http://localhost:2990/add-result/' + $scope.updateEventMatchId +'',dane
+						$location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/add-result/' + $scope.updateEventMatchId +'',dane
 						).success(function(data) {
 							$scope.info = "http://localhost:2990/add-result/";
 						}).error(function(data) {

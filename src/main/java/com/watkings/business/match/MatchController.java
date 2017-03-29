@@ -48,7 +48,6 @@ public class MatchController {
 		Match match = matchRepository.findById(id);
 		MatchInfoDto matchInfoDto =new MatchInfoDto();
 		if(match!=null){
-			
 			matchInfoDto = matchService.getMatchInfo(match);
 			return matchInfoDto;
 		}

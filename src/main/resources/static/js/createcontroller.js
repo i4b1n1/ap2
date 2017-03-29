@@ -247,6 +247,7 @@ app.controller('createController', function($scope, $http, $location,
 
 	   }
 	  $scope.updateTeamofEvent = function(data){
+		  $scope.globalTeamId = data.id;
 		   $http.get(
 				   $location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + '/teams/matches/'+ data.id + '').success(
 					function(data) {
@@ -261,14 +262,28 @@ app.controller('createController', function($scope, $http, $location,
 	  
 	  $scope.updateEvent = function(data){
 		  $scope.updateEventMatchId = data.matchId;
+		  
+		  $http.get(
+				   $location.protocol() + '://'+ $location.host() +':'+  $location.port() + '/' + 'players/list/'+ $scope.globalTeamId + '').success(
+					function(data) {
+						$scope.selectedEventPlayerList = data;
+					}).error(
+					function(data) {
+						$scope.info = " http://localhost:2990//players/list/"
+					}); 
 	  }
 
+	  
+	  $scope.selectedPlayerinEvent = function(data){
+		  $scope.globalPlayerId = data;
+	  }
+	  
 	  
 		$scope.submitEvent= function() {
 		
 			var dane = {
-					 'playerId' : $scope.playerIdEvent , 
-					'teamId' : $scope.teamIdEvent ,
+					 'playerId' : $scope.globalPlayerId , 
+					'teamId' : $scope.updateEventMatchId ,
 					'eventTypeId' : $scope.eventTypeIdEvent , 
 					'eventMinute' : $scope.eventMinuteEvent 
 					 }

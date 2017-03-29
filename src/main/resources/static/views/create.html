@@ -231,18 +231,16 @@
 				</select>
 			</form>
 			
+			<form name="myForm">
+				<label for="repeatSelectTeamPlayer"> Player: </label> 
+				<select name="repeatSelect" id="repeatSelectTeam"Player >
+					<option ng-repeat="data in selectedEventPlayerList" ng-click=selectedPlayerinEvent(data.id) 
+						value="{{data.id}}">{{data.name}}</option>
+				</select>
+			</form>
 			
 			<form role="form">
-				<div class="form-group">
-
-					<label> Player id </label> <input class="form-control" ng-init="idTeam=''"
-						ng-model="playerIdEvent" />
-				</div>
-				<div class="form-group">
-
-					<label> Team id </label> <input class="form-control"
-						ng-model="teamIdEvent" />
-				</div>
+			
 				<div class="form-group">
 
 					<label> Event type </label> <input class="form-control"
@@ -261,5 +259,5 @@
 	</div>
 	
 	</div>
-
+	
 </div>

@@ -25,7 +25,7 @@ app.controller('loginController',
 						appService.zalogowany = "YES";
 						
 					} else {
-						$location.path("/panel");
+						$location.path("/liga1");
 						$scope.name = "Nie poprawny";
 					}
 				}).error(function(data) {

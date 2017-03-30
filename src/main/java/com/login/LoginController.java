@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dto.FootballerA;
-import com.dto.MatchA;
-import com.dto.TeamA;
-
 @RestController
 public class LoginController {
 
@@ -31,11 +27,18 @@ public class LoginController {
 	public Map logging(
 			@PathVariable("login") String login, 
 			@PathVariable("key") String key) {
+		
 
 		Map<String, String> map = new HashMap<String, String>();
 		// sprawdzenie czy dane logowania sa poprawnw, jesli tak to true
 		log.info("\n login: " + login + " key: " + key);
-		map.put("status", "true");
+		String admin = new String("admin");
+		if(admin.equals(login) && admin.equals(key)){
+			map.put("status", "true");
+		}else{
+			map.put("status", "false");
+		}
+		
 		return map;
 	}
 

@@ -1,9 +1,6 @@
 var app = angular.module('app', [ 'ngRoute', 'ngResource' ,'angularModalService']);
 app.config(function($routeProvider) {
-	$routeProvider.when('/login', {
-		templateUrl : '/views/login.html',
-		controller : 'loginController'
-	}).when('/liga1', {
+	$routeProvider.when('/liga1', {
 		templateUrl : '/views/liga1.html',
 		controller : 'ligaController'
 	}).when('/liga2', {
@@ -15,8 +12,8 @@ app.config(function($routeProvider) {
 	}).when('/kontakt', {
 		templateUrl : '/views/kontakt.html',
 		controller : 'contactController'
-	}).	when('/create', {
-		templateUrl : '/views/create.html',
+	}).when('/create', {
+		templateUrl : '/create.html',
 		controller : 'createController'
 	}).when('/glowna', {
 		templateUrl : '/views/glowna.html',
